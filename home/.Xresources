@@ -1,0 +1,60 @@
+! hard contrast: *background: #1d2021
+*background: #1d2021
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
+
+
+!URxvt.font: xft:Fira Mono:pixelsize=14,style=regular
+!urxvt.font: xft:Meslo LG S DZ for Powerline:bold:pixelsize=13
+URxvt*font: xft:Meslo LG M:Regular:pixelsize=14
+URxvt*boldFont: xft:Meslo LG M:Bold:pixelsize=14
+URxvt*italicFont: xft:Meslo LG M:Italic:pixelsize=14
+URxvt*bolditalicFont: xft:Meslo LG M:Bold:Italic:pixelsize=14
+!URxvt*font: xft:dina :Regular:pixelsize=13
+
+!Scrollbar
+Urxvt.scrollStyle:rxvt
+URxvt.scrollBar: false
+
+!Rofi
+rofi.font: dina\ 8
+rofi.color-enabled: true
+rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
+rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
+rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
+rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
+rofi.width: 1152
+rofi.lines: 8
+rofi.location: 2
+rofi.yoffset: 30
+rofi.xoffset:-2
+rofi.opacity: 98
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+
+Xcursor.theme: Human
