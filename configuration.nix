@@ -35,7 +35,9 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    wget firefox xfce.thunar vim git rxvt_unicode compton-git python27Packages.pip rofi leafpad screenfetch xbindkeys  paper-icon-theme arc-gtk-theme lxappearance paper-gtk-theme
+    wget firefox xfce.thunar vim git rxvt_unicode compton-git python27Packages.pip
+
+    rofi leafpad screenfetch xbindkeys paper-icon-theme lxappearance 
   ];
 
   #fonts
@@ -48,6 +50,7 @@
        unifont # some international languages
        meslo-lg
        dina-font
+       font-awesome-ttf
      ];
    };
   # List services that you want to enable:
@@ -57,8 +60,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-  #vboxguest
-  virtualisation.virtualbox.guest.enable = true;
 
   #shell
   programs.zsh.enable = true;
