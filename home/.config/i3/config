@@ -18,7 +18,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango: M+ 1m, FontAwesome, 10
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -26,8 +27,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
+floating_modifier $mod 
 # start a terminal
 bindsym $mod+Return exec urxvtc
 
@@ -132,10 +132,10 @@ bindsym $mod+c focus child
 #bindsym $mod+4 exec $control go 4
 
 
-bindsym $mod+1 workspace 1:1st
-bindsym $mod+2 workspace 2:2nd
-bindsym $mod+3 workspace 3:3rd
-bindsym $mod+4 workspace 4:4th
+bindsym $mod+1 workspace 1:!
+bindsym $mod+2 workspace 2:@
+bindsym $mod+3 workspace 3:#
+bindsym $mod+4 workspace 4:$
 
 
 
@@ -144,10 +144,10 @@ bindsym $mod+4 workspace 4:4th
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:1st
-bindsym $mod+Shift+2 move container to workspace 2:2nd
-bindsym $mod+Shift+3 move container to workspace 3:3rd
-bindsym $mod+Shift+4 move container to workspace 4:4th
+bindsym $mod+Shift+1 move container to workspace 1:!
+bindsym $mod+Shift+2 move container to workspace 2:@
+bindsym $mod+Shift+3 move container to workspace 3:#
+bindsym $mod+Shift+4 move container to workspace 4:$
 
 
 
@@ -206,7 +206,28 @@ bindsym $mod+r mode "resize"
 for_window [class="I3-exit"] floating enable border normal
 for_window [class="mpv"] floating enable border normal
 
+#exec polybar top 
 #go(po) home
+
+bar {
+  position top
+  separator_symbol " | "
+  tray_output none 
+  status_command ~/.i3bar.sh
+  strip_workspace_numbers yes
+    colors {
+        background #282828
+        statusline #ebdbb2 #that neon blue
+        separator #383838
+
+        focused_workspace  #83a598 #fbf1c7 #504945
+        active_workspace   #504945 #504945 #ebdbb2
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
+
+}
+
 
 
 # other keys

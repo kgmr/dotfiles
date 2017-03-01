@@ -9,7 +9,7 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "300x5-30+60"
+    geometry = "300x5-6+24"
     transparency = 10
     idle_threshold = 120
     monitor = 0
@@ -18,15 +18,16 @@
     history_length = 0
     line_height = 0
     separator_height = 4
-    padding = 16
-    horizontal_padding = 20
+    padding = 8
+    horizontal_padding = 8
     separator_color = auto
     startup_notification = false
     dmenu = rofi -show run
     browser = chromium
+    icon_position = left
 
 [frame]
-    width = 5
+    width = 1
     color = "#444444"
 
 [shortcuts]
@@ -39,8 +40,8 @@
     timeout = 1
 
 [urgency_normal]
-    background = "#262626"
-    foreground = "#eaeaea"
+    background = "#282828"
+    foreground = "#ebdbb2"
     timeout = 10
 
 [urgency_critical]
