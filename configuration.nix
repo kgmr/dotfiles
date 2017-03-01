@@ -35,9 +35,9 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    wget firefox xfce.thunar vim git rxvt_unicode compton-git python27Packages.pip
+    wget firefox xfce.thunar vimHugeX git rxvt_unicode compton-git python27Packages.pip nox 	lua5_0 vanilla-dmz unclutter
 
-    rofi leafpad screenfetch xbindkeys paper-icon-theme lxappearance 
+    rofi leafpad screenfetch xbindkeys paper-icon-theme lxappearance i3blocks-gaps
   ];
 
   #fonts
