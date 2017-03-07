@@ -121,10 +121,10 @@
   Alt+ Tab
 
 "maim ~/Pictures/Capture/$(date +%F-%T).png"
-  Mod4 + Print
+  Print
 
 "maim ~/Pictures/Capture/$(date +%F-%T).png -s"
-  Shift+Mod4 + Print
+  Shift+ Print
 #wifi script
 "nmcli_dmenu"
   Mod4 + n
