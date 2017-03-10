@@ -35,9 +35,21 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    wget firefox xfce.thunar vimHugeX gitMinimal rxvt_unicode compton-git python27Packages.pip nox 	lua5_0 vanilla-dmz unclutter
 
-    rofi leafpad screenfetch xbindkeys paper-icon-theme lxappearance i3blocks-gaps
+     #prog
+     vimHugeX gitMinimal brackets nodejs lua5_0
+     python27Packages.pip python27Packages.virtualenv
+     python35Packages.virtualenv python35Packages.pip
+     mysqlWorkbench
+
+     #util
+     wget firefox xfce.thunar rxvt_unicode compton-git
+     nox sxiv xfce.xfce4taskmanager leafpad xbindkeys
+     brackets nodejs rofi fzf tilda
+
+     #appearance
+     feh screenfetch paper-icon-theme lxappearance i3status
+     vanilla-dmz gtk-engine-murrine 
   ];
 
   #fonts
@@ -61,15 +73,22 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  #unclutter
+  services.unclutter.enable = true;
+
   #shell
   programs.zsh.enable = true;
+  
+  #sql
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mariadb;
   
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "br";
   services.xserver.windowManager.i3-gaps.enable = true;
   services.xserver.windowManager.default= "i3-gaps";
-  services.xserver.resolutions = [ { x = 1440; y = 900; }];
+  services.xserver.resolutions = [ { x = 1336; y = 768; }];
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable the KDE Desktop Environment.
