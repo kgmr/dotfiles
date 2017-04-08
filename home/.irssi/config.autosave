@@ -155,7 +155,7 @@ aliases = {
   BACK = "AWAY";
   BANS = "BAN";
   BYE = "QUIT";
-  C = "CLEAR";
+  C = "connect";
   CALC = "EXEC - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
   CHAT = "DCC CHAT";
   CUBES = "SCRIPT EXEC Irssi::active_win->print(\"%_bases\", MSGLEVEL_CLIENTCRAP) \\; Irssi::active_win->print( do { join '', map { \"%x0\\${_}0\\$_\" } '0'..'9','A'..'F' }, MSGLEVEL_NEVER | MSGLEVEL_CLIENTCRAP) \\; Irssi::active_win->print(\"%_cubes\", MSGLEVEL_CLIENTCRAP) \\; Irssi::active_win->print( do { my \\$y = \\$_*6 \\; join '', map { my \\$x = \\$_ \\; map { \"%x\\$x\\$_\\$x\\$_\" } @{['0'..'9','A'..'Z']}[\\$y .. \\$y+5] } 1..6 }, MSGLEVEL_NEVER | MSGLEVEL_CLIENTCRAP) for 0..5 \\; Irssi::active_win->print(\"%_grays\", MSGLEVEL_CLIENTCRAP) \\; Irssi::active_win->print( do { join '', map { \"%x7\\${_}7\\$_\" } 'A'..'X' }, MSGLEVEL_NEVER | MSGLEVEL_CLIENTCRAP) \\; Irssi::active_win->print(\"%_mIRC extended colours\", MSGLEVEL_CLIENTCRAP) \\; my \\$x \\; \\$x .= sprintf \"\00399,%02d%02d\",\\$_,\\$_ for 0..15 \\; Irssi::active_win->print(\\$x, MSGLEVEL_NEVER | MSGLEVEL_CLIENTCRAP) \\; for my \\$z (0..6) { my \\$x \\; \\$x .= sprintf \"\00399,%02d%02d\",\\$_,\\$_ for 16+(\\$z*12)..16+(\\$z*12)+11 \\; Irssi::active_win->print(\\$x, MSGLEVEL_NEVER | MSGLEVEL_CLIENTCRAP) }";
@@ -302,7 +302,15 @@ aliases = {
   97 = "WINDOW GOTO 97";
   98 = "WINDOW GOTO 98";
   99 = "WINDOW GOTO 99";
-  connect = "c";
+  rizon = "connect rizon";
+  dc = "disconnect";
+  l = "part";
+  id = "msg NickServ identify";
+  nl = "nicklist screen";
+  nloff = "nicklist off";
+  close = "window close";
+  nlw = "set nicklist_width";
+  get = "dcc get";
 };
 
 statusbar = {
@@ -399,12 +407,33 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    dccstat = { items = { dccstat = { }; }; };
+    add = { };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
   core = { real_name = "Uzihs"; user_name = "Uzihs"; nick = "Uzihs"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
-  "irc/core" = { alternate_nick = "Winng"; };
+  "perl/core/scripts" = {
+    nicklist_automode = "off";
+    nicklist_width = "14";
+    dccstat_EXPERIMENTAL_fast_refresh = "yes";
+    dccstat_short_mode = "yes";
+    dccstat_filename_max_length_shortmode = "25";
+    awl_shared_sbar = "OFF";
+    awl_sbar_maxlength = "yes";
+  };
+  "irc/dcc" = { dcc_autoget = "yes"; };
 };
-hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
+keyboard = (
+  { key = "^[Oa"; id = "command"; data = "nicklist scroll -10"; },
+  { key = "^[Ob"; id = "command"; data = "nicklist scroll +10"; }
+);

@@ -67,10 +67,10 @@
 #"dmenuf.sh"
 #  Menu
 #Dmenu update
-"~/bin/index.sh u"
-  Control + Menu
+#"~/bin/index.sh u"
+#  Control + Menu
 #Dmenu search
-"~/bin/index.sh"
+"~/bin/qopen"
   Menu
 #add music
 #"clerk --add track"

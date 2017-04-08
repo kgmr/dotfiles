@@ -356,7 +356,6 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -408,6 +407,14 @@ statusbar = {
     };
     dccstat = { items = { dccstat = { }; }; };
     add = { };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    remove = { items = { }; };
   };
 };
 settings = {
@@ -419,6 +426,8 @@ settings = {
     nicklist_width = "20";
     dccstat_EXPERIMENTAL_fast_refresh = "yes";
     dccstat_short_mode = "yes";
+    awl_shared_sbar = "OFF";
+    awl_viewer = "no";
   };
   "irc/dcc" = { dcc_autoget = "yes"; };
 };
