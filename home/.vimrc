@@ -1,6 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+:set mouse=a
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -40,7 +40,7 @@ syntax enable
 set background=dark
 :colorscheme gruvbox
 set t_co=256
-set number
+set relativenumber
 "Set paste
 nmap sp :set pastetoggle<CR>
 
@@ -70,9 +70,9 @@ nmap f <Plug>(easymotion-overwin-f)
 "Neocomplete
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -117,4 +117,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"jedi
+"jedi completion
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'

@@ -64,17 +64,12 @@
   Mod4 + F3
 ##
 #Dmenu search
-#"dmenuf.sh"
-#  Menu
-#Dmenu update
-#"~/bin/index.sh u"
-#  Control + Menu
-#Dmenu search
-"~/bin/qopen"
+"~/bin/qopen.sh"
   Menu
+"~/bin/qopen.sh s"
+  Control + Menu
 #add music
-#"clerk --add track"
-"urxvtc -e addm"
+"clerk --add track"
   Shift+Alt + q
 #rate music
 "clerk --rate" 
@@ -114,7 +109,7 @@
  Mod4 + Escape
 
 #Lock screen and suspend
-"~/bin/lock.sh s"
+"~/bin/lock.sh && systemctl suspend"
  Shift+Mod4 + Escape
 
 "rofi -show"
