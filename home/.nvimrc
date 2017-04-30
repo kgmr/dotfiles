@@ -43,6 +43,7 @@ set hlsearch
 syntax enable
 set background=dark
 :colorscheme gruvbox
+set cursorline
 set t_co=256
 set number
 "Set paste
