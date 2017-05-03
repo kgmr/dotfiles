@@ -15,22 +15,18 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
-Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'tpope/vim-surround'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'neomake/neomake'
 Plugin 'morhetz/gruvbox'
 Plugin 'shinchu/lightline-gruvbox.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'shougo/neosnippet.vim'
 Plugin 'shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
 Plugin 'itchyny/lightline.vim'
 Plugin 'minibufexpl.vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin '907th/vim-auto-save'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'sbdchd/vim-run'
@@ -83,10 +79,6 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 "Tree
 map tt :NERDTreeToggle<CR>
-"Tags
-nmap tg :TagbarToggle<CR> 
-"Hardtime
-let g:hardtime_default_on = 1
 "Line
 set laststatus=2
 let g:lightline = {
@@ -110,13 +102,3 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"jedi completion
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'

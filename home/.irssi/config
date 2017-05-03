@@ -343,7 +343,7 @@ statusbar = {
 
     window = {
 
-      disabled = "no";
+      disabled = "yes";
       type = "window";
       placement = "bottom";
       position = "1";
@@ -406,7 +406,6 @@ statusbar = {
       };
     };
     dccstat = { items = { dccstat = { }; }; };
-    add = { };
     awl_0 = {
       items = {
         barstart = { priority = "100"; };
@@ -414,7 +413,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    remove = { items = { }; };
   };
 };
 settings = {
