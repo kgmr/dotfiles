@@ -30,6 +30,10 @@ Plugin 'minibufexpl.vim'
 Plugin '907th/vim-auto-save'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'sbdchd/vim-run'
+Plugin 'nvie/vim-flake8'
+Plugin 'mattn/emmet-vim'
+Plugin 'carlitux/deoplete-ternjs'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -43,7 +47,6 @@ set cursorline
 set t_co=256
 set number
 "Set paste
-nmap sp :set pastetoggle<CR>
 
 "Ctrlp
 let g:ctrlp_map = '<c-p>'
@@ -55,7 +58,7 @@ autocmd FileType html,css EmmetInstall
 "neomake
 autocmd! BufWritePost * Neomake
 "autosave
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 0  " enable AutoSave on Vim startup
 "Main key and esc
 ino jj <esc>
 cno jj <c-c>
@@ -102,3 +105,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" paste
+set pastetoggle=<F2>
+"close scratch
+autocmd CompleteDone * pclose

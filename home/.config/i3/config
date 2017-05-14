@@ -40,7 +40,8 @@ bindsym $mod+Shift+c kill
 for_window [class="^.*"] border pixel 0
 
 # gaps
-gaps inner 5
+gaps inner 7
+gaps outer 0
 
 # start dmenu (a program launcher)
 #bindsym $mod+p exec $control open

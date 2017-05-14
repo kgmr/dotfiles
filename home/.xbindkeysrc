@@ -121,7 +121,7 @@
 "maim ~/Pictures/Capture/$(date +%F-%T).png -s"
   Shift+ Print
 #wifi script
-"nmcli_dmenu"
+"networkmanager_dmenu"
   Mod4 + n
 
 "~/bin/chmon.sh"
