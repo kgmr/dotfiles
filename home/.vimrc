@@ -30,6 +30,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'itchyny/lightline.vim'
 Plugin 'minibufexpl.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'posva/vim-vue'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

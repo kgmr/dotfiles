@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 :set mouse=a
+:match ErrorMsg '\%>80v.\+'
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,8 +31,11 @@ Plugin 'minibufexpl.vim'
 Plugin '907th/vim-auto-save'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'sbdchd/vim-run'
+"Requires flake8
 Plugin 'nvie/vim-flake8'
 Plugin 'mattn/emmet-vim'
+Plugin 'posva/vim-vue'
+"Requires tern (npm install -g tern)
 Plugin 'carlitux/deoplete-ternjs'
 
 " All of your Plugins must be added before the following line
@@ -82,6 +86,7 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 "Tree
 map tt :NERDTreeToggle<CR>
+:let g:NERDTreeWinSize=27
 "Line
 set laststatus=2
 let g:lightline = {
