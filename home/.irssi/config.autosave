@@ -310,7 +310,6 @@ aliases = {
   nloff = "nicklist off";
   close = "window close";
   nlw = "set nicklist_width";
-  get = "dcc get";
 };
 
 statusbar = {
@@ -344,7 +343,7 @@ statusbar = {
 
     window = {
 
-      disabled = "no";
+      disabled = "yes";
       type = "window";
       placement = "bottom";
       position = "1";
@@ -357,7 +356,6 @@ statusbar = {
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
-        act = { priority = "10"; };
         more = { priority = "-1"; alignment = "right"; };
         barend = { priority = "100"; alignment = "right"; };
       };
@@ -408,11 +406,17 @@ statusbar = {
       };
     };
     dccstat = { items = { dccstat = { }; }; };
-    add = { };
     awl_0 = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
@@ -423,13 +427,14 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
   "perl/core/scripts" = {
-    nicklist_automode = "off";
-    nicklist_width = "14";
-    dccstat_EXPERIMENTAL_fast_refresh = "yes";
+    nicklist_automode = "screen";
+    nicklist_width = "20";
+    dccstat_EXPERIMENTAL_fast_refresh = "no";
     dccstat_short_mode = "yes";
-    dccstat_filename_max_length_shortmode = "25";
     awl_shared_sbar = "OFF";
-    awl_sbar_maxlength = "yes";
+    awl_viewer = "no";
+    dccstat_filename_max_length = "40";
+    dccstat_filename_max_length_shortmode = "30";
   };
   "irc/dcc" = { dcc_autoget = "yes"; };
 };

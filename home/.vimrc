@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 :set mouse=a
+set expandtab ts=4 sw=4 ai
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -38,8 +39,8 @@ filetype plugin indent on    " required
 "Conf
 set hlsearch
 syntax enable
-set background=dark
-:colorscheme gruvbox
+set background=light
+:colorscheme solarized
 set t_co=256
 set relativenumber
 "Set paste
@@ -99,7 +100,7 @@ let g:hardtime_default_on = 1
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'PaperColor',
       \ }
 "buffers
 

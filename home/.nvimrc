@@ -1,7 +1,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 :set mouse=a
-:match ErrorMsg '\%>80v.\+'
+
+set expandtab
+set shiftwidth=4
+set tabstop=4
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -18,7 +21,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'lokaltog/vim-easymotion'
-Plugin 'neomake/neomake'
 Plugin 'morhetz/gruvbox'
 Plugin 'shinchu/lightline-gruvbox.vim'
 Plugin 'shougo/deoplete.nvim'
@@ -28,13 +30,13 @@ Plugin 'shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'minibufexpl.vim'
-Plugin '907th/vim-auto-save'
 Plugin 'farmergreg/vim-lastplace'
-Plugin 'sbdchd/vim-run'
+Plugin 'mayansmoke'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'neomake/neomake'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
 Plugin 'mattn/emmet-vim'
-Plugin 'posva/vim-vue'
 "Requires tern (npm install -g tern)
 Plugin 'carlitux/deoplete-ternjs'
 
@@ -45,9 +47,8 @@ filetype plugin indent on    " required
 "Conf
 set hlsearch
 syntax enable
-set background=dark
-:colorscheme gruvbox
-set cursorline
+set background=light
+:colorscheme solarized
 set t_co=256
 set number
 "Set paste
@@ -59,8 +60,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-"neomake
-autocmd! BufWritePost * Neomake
 "autosave
 let g:auto_save = 0  " enable AutoSave on Vim startup
 "Main key and esc
@@ -69,7 +68,9 @@ cno jj <c-c>
 "ezmotion
 nmap f <Plug>(easymotion-overwin-f)
 
+"Neomake
 
+autocmd! BufWritePost * Neomake
 "Neocomplete
 " Use neocomplete.
 let g:deoplete#enable_at_startup = 1
@@ -90,9 +91,11 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'PaperColor',
       \ }
 "buffers
+
+
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
@@ -101,7 +104,6 @@ map gt :bnext<CR>
 "quicksave
 map <F4> :AutoSaveToggle<CR>
 "run
-map <F5> :Run<CR>
 "space meme
 nmap <space> :
 

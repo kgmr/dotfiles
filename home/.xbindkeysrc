@@ -72,7 +72,7 @@
 "clerk --add track"
   Shift+Alt + q
 #rate music
-"clerk --rate" 
+"clerk --rate track" 
   Shift+Alt+w
 #clerk
 "clerk"
@@ -113,12 +113,12 @@
  Shift+Mod4 + Escape
 
 "rofi -show"
-  Alt+ Tab
+  Alt + apostrophe
 
-"maim ~/Pictures/Capture/$(date +%F-%T).png"
+"scrot ~/Pictures/Capture/$(date +%F-%T).png"
   Print
 
-"maim ~/Pictures/Capture/$(date +%F-%T).png -s"
+"scrot ~/Pictures/Capture/$(date +%F-%T).png -s"
   Shift+ Print
 #wifi script
 "networkmanager_dmenu"

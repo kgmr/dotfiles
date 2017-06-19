@@ -212,6 +212,7 @@ for_window [class="xpad"] floating enable border normal
 #exec polybar top 
 #go(po) home
 
+#i3status
 bar {
   position top
   separator_symbol " "
@@ -234,7 +235,6 @@ bar {
 
 
 # other keys
-
 exec ~/bin/startup.sh
 
 # open certain windows in floating mode
