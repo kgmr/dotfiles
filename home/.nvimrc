@@ -47,7 +47,7 @@ filetype plugin indent on    " required
 "Conf
 set hlsearch
 syntax enable
-set background=light
+set background=dark
 :colorscheme solarized
 set t_co=256
 set number
