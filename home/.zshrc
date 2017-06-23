@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="arrow"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,6 +86,14 @@ export CHROMIUM_FLAGS='--enable-remote-extensions'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias screenfetch="neofetch"
 alias irssi="screen irssi"
+alias vim="nvim"
+alias v="nvim"
+alias py="python"
+alias ..="cd .."
+alias pacs="Pacman -S"
+alias pacss="pacman -Ss"
+alias yas="yaourt -S"
+alias yass="yaourt -Ss"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
