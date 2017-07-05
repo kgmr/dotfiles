@@ -133,10 +133,10 @@ bindsym $mod+c focus child
 #bindsym $mod+4 exec $control go 4
 
 
-bindsym $mod+1 workspace 1:!
-bindsym $mod+2 workspace 2:@
-bindsym $mod+3 workspace 3:#
-bindsym $mod+4 workspace 4:$
+bindsym $mod+1 workspace 1:1st
+bindsym $mod+2 workspace 2:2nd
+bindsym $mod+3 workspace 3:3rd
+bindsym $mod+4 workspace 4:4th
 
 
 
@@ -145,10 +145,10 @@ bindsym $mod+4 workspace 4:$
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:!
-bindsym $mod+Shift+2 move container to workspace 2:@
-bindsym $mod+Shift+3 move container to workspace 3:#
-bindsym $mod+Shift+4 move container to workspace 4:$
+bindsym $mod+Shift+1 move container to workspace 1:1st
+bindsym $mod+Shift+2 move container to workspace 2:2nd
+bindsym $mod+Shift+3 move container to workspace 3:3rd
+bindsym $mod+Shift+4 move container to workspace 4:4th
 
 
 

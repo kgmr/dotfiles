@@ -413,13 +413,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -433,8 +426,6 @@ settings = {
     dccstat_short_mode = "yes";
     awl_shared_sbar = "OFF";
     awl_viewer = "no";
-    dccstat_filename_max_length = "40";
-    dccstat_filename_max_length_shortmode = "30";
   };
   "irc/dcc" = { dcc_autoget = "yes"; };
 };

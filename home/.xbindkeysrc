@@ -113,7 +113,7 @@
  Shift+Mod4 + Escape
 
 "rofi -show"
-  Alt + apostrophe
+  Alt + Tab
 
 "scrot ~/Pictures/Capture/$(date +%F-%T).png"
   Print
