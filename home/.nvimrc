@@ -21,8 +21,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'lokaltog/vim-easymotion'
-Plugin 'morhetz/gruvbox'
-Plugin 'shinchu/lightline-gruvbox.vim'
 Plugin 'shougo/deoplete.nvim'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'shougo/neosnippet.vim'
@@ -31,7 +29,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'minibufexpl.vim'
 Plugin 'farmergreg/vim-lastplace'
-Plugin 'mayansmoke'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'neomake/neomake'
 "Requires flake8
@@ -39,7 +36,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'mattn/emmet-vim'
 "Requires tern (npm install -g tern)
 Plugin 'carlitux/deoplete-ternjs'
-
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'Yggdroot/indentLine'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

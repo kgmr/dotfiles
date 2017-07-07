@@ -88,15 +88,11 @@ alias screenfetch="neofetch"
 alias irssi="screen irssi"
 alias vim="nvim"
 alias v="nvim"
-alias py="python"
+alias py="python3"
+alias python="python3"
 alias ..="cd .."
-alias pacs="Pacman -S"
-alias pacss="pacman -Ss"
-alias yas="yaourt -S"
-alias yass="yaourt -Ss"
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   exec startx
 fi
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"

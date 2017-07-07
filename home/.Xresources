@@ -96,11 +96,8 @@
 *color15: S_base3
 
 !URxvt.font: xft:Fira Mono:pixelsize=14,style=regular
-!urxvt.font: xft:Meslo LG S DZ for Powerline:bold:pixelsize=13
-URxvt*font: xft:Meslo LG M:Regular:pixelsize=14
-URxvt*boldFont: xft:Meslo LG M:Bold:pixelsize=14
-URxvt*italicFont: xft:Meslo LG M:Italic:pixelsize=14
-URxvt*bolditalicFont: xft:Meslo LG M:Bold:Italic:pixelsize=14
+!urxvt.font: xft:DejaVuSansMono:pixelsize=13
+urxvt.font: xft:DejaVuSansMono:pixelsize=13
 !URxvt*font: xft:dina :Regular:pixelsize=13
 
 !Scrollbar
