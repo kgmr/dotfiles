@@ -39,6 +39,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
+Plugin 'NLKNguyen/papercolor-theme'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -54,7 +56,7 @@ if 6 <= hour && hour < 18
 else
   set background=dark
 endif
-:colorscheme solarized
+colorscheme PaperColor
 set t_co=256
 set number
 "Set paste
@@ -97,7 +99,7 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'PaperColor',
       \ }
 "buffers
 
