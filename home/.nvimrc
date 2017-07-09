@@ -31,6 +31,7 @@ Plugin 'minibufexpl.vim'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'neomake/neomake'
+Plugin 'reedes/vim-colors-pencil'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
 Plugin 'mattn/emmet-vim'
@@ -38,6 +39,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -45,7 +47,13 @@ filetype plugin indent on    " required
 "Conf
 set hlsearch
 syntax enable
-set background=dark
+"switcheroo
+let hour = strftime("%H")
+if 6 <= hour && hour < 18
+  set background=light
+else
+  set background=dark
+endif
 :colorscheme solarized
 set t_co=256
 set number
@@ -89,7 +97,7 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'solarized',
       \ }
 "buffers
 
