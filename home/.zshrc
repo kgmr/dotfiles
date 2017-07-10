@@ -89,10 +89,17 @@ alias irssi="screen irssi"
 alias vim="nvim"
 alias v="nvim"
 alias py="python3"
-alias python="python3"
-alias ..="cd .."
-
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx
-fi
-
+alias vo="nvim -c CtrlP"
+#Package management
+alias pac="sudo aura -S"
+alias pacs="aura -Ss"
+alias pacr="sudo aura -R"
+alias aur="sudo aura -A"
+alias aurs="aura -As"
+#Git
+alias clone="git clone"
+alias gitp="git push"
+alias gita="git add *"
+alias gitc="git commit -m"
+alias gits="git status"
+alias gitb="git checkout -b"
