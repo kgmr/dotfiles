@@ -1,0 +1,7 @@
+nmap gr :tabprevious<CR>
+set hintchars=sadfjklewcmpgh
+set ignorecase
+nmap j 3<Down>
+nmap k 3<Up>
+nmap s :o google 
+nmap S :t google 
