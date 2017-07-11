@@ -61,7 +61,7 @@
 
 URxvt.foreground: #4D4D4C
 URxvt.background: #EEEEEE
-
+*cursorColor: #969694
 ! black
 URxvt.color0: #EDEDED
 URxvt.color8: #969694
@@ -96,8 +96,10 @@ URxvt.color15: #F5F5F5
 
 !URxvt.font: xft:Fira Mono:pixelsize=14,style=regular
 !urxvt.font: xft:DejaVuSansMono:pixelsize=13
-urxvt.font: xft:DejaVuSansMono:pixelsize=14
-!URxvt*font: xft:dina :pixelsize=13
+!urxvt.font: xft:DejaVuSansMono:pixelsize=14
+!urxvt.font: xft:monaco:style=Regular:antialias=true:size=10
+URxvt.font: xft:Dina:regular:pixelsize=13
+URxvt.boldFont: xft:Dina:bold:pixelsize=13
 !Scrollbar
 Urxvt.scrollStyle:rxvt
 URxvt.scrollBar: false
@@ -124,15 +126,14 @@ rofi.color-enabled: true
 ! a6 = 65% amount of black needed over white for white to be a 7 contrast score
 ! b3 = 70%
 ! 80 = 50%
-rofi.color-window: argb:a6000000, argb:a6000000, argb:0000000 
-rofi.color-normal: argb:0fdf6e3, #ffffff, argb:0eee8d5, #009688, #ffffff 
-rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3 
+rofi.color-window: argb:a6000000, argb:a6000000, argb:0000000
+rofi.color-normal: argb:0fdf6e3, #ffffff, argb:0eee8d5, #009688, #ffffff
+rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
 rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 rofi.line-margin: 30
 rofi.font: Roboto Light 28
 rofi.padding: 68
 rofi.fullscreen: true
-rofi.display-drun: 
+rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
-Xcursor.theme: Human

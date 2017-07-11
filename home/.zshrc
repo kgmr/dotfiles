@@ -104,3 +104,5 @@ alias gitc="git commit -m"
 alias gits="git status"
 alias gitb="git checkout -b"
 alias gitd="git diff"
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
