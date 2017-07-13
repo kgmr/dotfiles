@@ -58,6 +58,19 @@ else
 endif
 colorscheme PaperColor
 set t_co=256
+
+if exists ("*ToggleBackground") == 0
+    function ToggleBackground()
+        if &background == "dark"
+            set background=light
+        else
+            set background=dark
+        endif
+    endfunction
+
+    command Togglebg call ToggleBackground()
+endif
+map <F4> :Togglebg<CR>
 set number
 "Set paste
 
@@ -69,7 +82,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 "autosave
-let g:auto_save = 0  " enable AutoSave on Vim startup
 "Main key and esc
 ino jj <esc>
 cno jj <c-c>
@@ -95,7 +107,7 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 "Tree
 map tt :NERDTreeToggle<CR>
-:let g:NERDTreeWinSize=27
+:let g:NERDTreeWinSize=25
 "Line
 set laststatus=2
 let g:lightline = {
@@ -109,8 +121,6 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
 map gt :bnext<CR>
-"quicksave
-map <F4> :AutoSaveToggle<CR>
 "run
 "space meme
 nmap <space> :

@@ -81,7 +81,7 @@
 #Redshift
 "~/bin/redshift.sh"
   Mod4 + p
-"exec zsh -c 'rofi -show run'"
+"zsh -c 'rofi -show run'"
   Alt + q
 "lxtask"
   Control+Shift + Escape
