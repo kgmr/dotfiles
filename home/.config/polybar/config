@@ -1,9 +1,9 @@
 [colors]
-background = #222
-foreground = #eee
-linecolor = #fba922
+foreground = #4D4D4C
+background = #EEEEEE
+linecolor = #D7005F
 bordercolor = #333
-accent = #e60053
+accent = #4271AE
 
 
 [settings]
@@ -22,40 +22,38 @@ margin-bottom = 0
 enable-ipc = true
 monitor = LVDS1
 width = 100%
-height = 20
+height = 17
 ;override-redirect = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-underline-size = 1
+underline-size = 0
 underline-color = ${colors.linecolor}
-overline-size = 2
+overline-size = 0
 overline-color = ${colors.linecolor}
 
 border-bottom-color = ${colors.bordercolor}
 
 spacing = 0
 padding-left = 0
-padding-right = 2
+padding-right = 1
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = dina:pixelsize=11;1
-font-1 = Siji:pixelsize=11;1
-font-2 = unifont:size=10;0
+font-0 = Monaco:pixelsize=9;2
+font-1 = Wuncon Siji:pixelsize=12;2
+font-2 = unifont:size=10;2
 
-modules-left = mpd
-modules-center = i3
-modules-right = wifi xbacklight volume battery memory cpu date
+modules-left = i3 xwindow
+modules-center = mpd
+modules-right = wifi volume xbacklight cpu battery date
 #xkeyboard#xkeyboard#xkeyboard#xkeyboard#xkeyboard#xkeyboard#xkeyboard#xkeyboard#xkeyboard
 tray-padding = 4
 tray-maxsize = 16
 ;tray-transparent = true
 ;tray-detached = true
 ;tray-offset-x = -100
-
-wm-restack = i3
 
 ;dim-value = 0.2
 
@@ -198,7 +196,7 @@ label-mode-padding = 2
 label-mode-background = ${colors.accent}
 
 label-focused = %icon%
-label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-background = #4271AE
 label-focused-foreground = ${module/bspwm.label-focused-foreground}
 label-focused-overline= ${module/bspwm.label-focused-overline}
 label-focused-underline= ${module/bspwm.label-focused-underline}
@@ -229,7 +227,7 @@ label = %{F#666}%{F#cc} %percentage_used%
 
 [module/wifi]
 type = internal/network
-interface = wlan0
+interface = wlp2s0
 interval = 3.0
 ;udspeed-minwidth = 0
 
@@ -260,9 +258,9 @@ label-disconnected-foreground = #66
 
 [module/date]
 type = internal/date
-date = %%{F#666}%{F-} %d-%m  %%{F#e60053}%%{F-} %H:%M
+date = %%{F#666}%{F-} %d-%m %%{F#e60053}%%{F-} %H:%M
 interval = 5
-
+click-left = gsimplecalc
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -284,7 +282,7 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = #66
-label-muted = sound muted
+label-muted = -
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -335,25 +333,23 @@ animation-charging-framerate = 750
 type = internal/mpd
 
 ;format-online = <label-time>  <bar-progress>  <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>
-format-online = <label-time> %{F#22}|%{F-} <label-song> <icon-prev><icon-stop><toggle><icon-next> <icon-repeat><icon-random>
-format-online-background = #ee333333
-format-online-underline = #cc333333
+format-online = <toggle>  <label-song> 
 format-online-padding = 3
 
-format-offline = <label-offline>
+format-offline = 
 format-offline-foreground = #66
 
 label-offline = [AS disconnected]
 
-label-song-maxlen = 45
+label-song-maxlen = 30
 label-song-ellipsis = true
 
 label-time-foreground = #77
 
 icon-prev = 
 icon-stop = 
-icon-play = 
-icon-pause = 
+icon-play = ▶
+icon-pause = ||
 icon-next = 
 
 icon-random = 
@@ -434,7 +430,7 @@ label-indicator-background = ${colors.accent}
 [module/xwindow]
 type = internal/xwindow
 format = <label>
-label-maxlen = 75
+label-maxlen = 45
 
 
 [module/counter]

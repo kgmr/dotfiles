@@ -5,3 +5,34 @@ visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "▪▌"
 visualizer_color = white
+
+# Playlist
+song_columns_list_format = "(6f)[cyan]{l} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b}"
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+playlist_display_mode = "columns" (classic/columns)
+autocenter_mode = "yes"
+centered_cursor = "yes"
+
+# Bars
+song_status_format = "$8%t $1• $2%a $1•{ $5%b $1• }$7%y$1"
+progressbar_look = "─╼╌"
+header_visibility = "yes"
+
+# Browser
+browser_playlist_prefix = "$2plist »$9 "
+browser_display_mode = "columns" (classic/columns)
+
+# Colors
+discard_colors_if_item_is_selected = "yes"
+header_window_color = "black"
+volume_color = "blue"
+state_line_color = "green"
+state_flags_color = "red"
+main_window_color = "blue"
+color1 = "default"
+color2 = "black"
+main_window_highlight_color = "red"
+progressbar_color = "green"
+statusbar_color = "black"
+active_column_color = "red"

@@ -27,7 +27,7 @@ font pango: M+ 1c, FontAwesome, 10
 # font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod 
+floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec urxvtc
 
@@ -40,7 +40,7 @@ bindsym $mod+Shift+c kill
 for_window [class="^.*"] border pixel 0
 
 # gaps
-gaps inner 5
+gaps inner 2
 gaps outer 0
 
 # start dmenu (a program launcher)
@@ -204,38 +204,39 @@ bindsym $mod+r mode "resize"
 #media next and prev
 
 
-for_window [class="I3-exit"] floating enable border normal
-for_window [class="mpv"] floating enable border normal
-for_window [class="MComix"] floating enable border normal
-for_window [class="xpad"] floating enable border normal
-
-#exec polybar top 
+for_window [class="I3-exit"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="MComix"] floating enable
+for_window [class="xpad"] floating enable
+for_window [class="(?i)gsimplecal"] floating enable, move position mouse
+#exec polybar top
 #go(po) home
 
 #i3status
-bar {
-  position top
-  separator_symbol " "
-  tray_output none 
-  status_command ~/.i3bar.sh
-  strip_workspace_numbers yes
-    colors {
-        background #282828
-        statusline #ebdbb2 #that neon blue
-        separator #383838
-
-        focused_workspace  #83a598 #fbf1c7 #504945
-        active_workspace   #504945 #504945 #ebdbb2
-        inactive_workspace #333333 #282828 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-    }
-
-}
-
+#bar {
+#  position top
+#  separator_symbol " "
+#  tray_output none
+#  status_command ~/.i3bar.sh
+#  strip_workspace_numbers yes
+#    colors {
+#        background #282828
+#        statusline #ebdbb2 #that neon blue
+#        separator #383838
+#
+#        focused_workspace  #83a598 #fbf1c7 #504945
+#        active_workspace   #504945 #504945 #ebdbb2
+#        inactive_workspace #333333 #282828 #888888
+#        urgent_workspace   #2f343a #900000 #ffffff
+#    }
+#
+#}
+#
 
 
 # other keys
 exec ~/bin/startup.sh
+exec polybar top
 
 # open certain windows in floating mode
 for_window [class="(?i)gnome-calculator"] floating enable
