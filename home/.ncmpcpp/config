@@ -4,7 +4,7 @@ visualizer_sync_interval = "30"
 visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "▪▌"
-visualizer_color = white
+visualizer_color = yellow
 
 # Playlist
 song_columns_list_format = "(6f)[cyan]{l} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b}"

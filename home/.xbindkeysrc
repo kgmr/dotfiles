@@ -81,7 +81,7 @@
 #Redshift
 "~/bin/redshift.sh"
   Mod4 + p
-"zsh -c 'rofi -show run'"
+"zsh -c 'rofi -show drun'"
   Alt + q
 "lxtask"
   Control+Shift + Escape
@@ -115,11 +115,11 @@
 "rofi -show"
   Alt + Tab
 
-"scrot ~/Pictures/Capture/$(date +%F-%T).png"
+"maim ~/Pictures/Capture/$(date +%F-%T).png"
   Print
 
-"scrot ~/Pictures/Capture/$(date +%F-%T).png -s"
-  Shift+ Print
+"maim ~/Pictures/Capture/$(date +%F-%T).png -s"
+  Shift + Print
 #wifi script
 "networkmanager_dmenu"
   Mod4 + n

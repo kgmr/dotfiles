@@ -113,5 +113,6 @@ alias gitco="git commit -m"
 alias gits="git status"
 alias gitb="git checkout -b"
 alias gitd="git diff"
+alias gitme="git merge"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"

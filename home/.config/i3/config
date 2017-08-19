@@ -102,7 +102,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+b split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -124,7 +124,7 @@ bindsym $mod+space floating toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+c focus child
+bindsym $mod+b focus child
 
 # switch to workspace
 #bindsym $mod+1 exec $control go 1
@@ -206,6 +206,8 @@ bindsym $mod+r mode "resize"
 
 for_window [class="I3-exit"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="Docky"] floating enable
+for_window [class="smplayer"] floating enable
 for_window [class="MComix"] floating enable
 for_window [class="xpad"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse
