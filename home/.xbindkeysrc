@@ -89,17 +89,17 @@
 #Dmenu search
 #Dmenu update
 
-#volume mute
-"amixer set Master toggle"
-  Mod4 + F8
-
-#volume down
-"amixer sset Master 5%-"
-  XF86AudioLowerVolume
-
-#vol up
-"amixer sset Master 5%+"
-  XF86AudioRaiseVolume
+##volume mute
+#"amixer set Master toggle"
+#  Mod4 + F8
+#
+##volume down
+#"amixer sset Master 5%-"
+#  XF86AudioLowerVolume
+#
+##vol up
+#"amixer sset Master 5%+"
+#  XF86AudioRaiseVolume
 
 #Tray
 "~/bin/stalonetray.sh"
@@ -107,10 +107,12 @@
 #lock screen
 "~/bin/lock.sh"
  Mod4 + Escape
-
-#Lock screen and suspend
+#Lock screen and hibernate
 "~/bin/lock.sh && systemctl suspend"
  Shift+Mod4 + Escape
+# Lock and suspend
+"~/bin/lock.sh && systemctl hibernate"
+ Control+Mod4 + Escape
 
 "rofi -show"
   Alt + Tab
@@ -126,6 +128,12 @@
 
 "~/bin/chmon.sh"
   Mod4 + F5
+
+"qutebrowser"
+  Mod4 + BackSpace
+
+"urxvt -e ranger"
+  Control + Return
 ##################################
 # End of xbindkeys configuration #
 ##################################

@@ -1,8 +1,42 @@
-! PaperColor Theme
+! Solarized light
+foreground: #4D4D4C
+background: #EEEEEE
+cursorColor: #969694
+! black
+color0: #d5d5d5
+color8: #969694
+
+! red
+color1: #D7005F
+color9: #D7005F
+
+! green
+color2: #718C00
+color10: #718C00
+
+! yellow / orange
+color3: #D75F00
+color11: #D75F00
+
+! blue
+color4: #4271AE
+color12: #4271AE
+
+! magenta
+color5: #8959A8
+color13: #8959A8
+
+! cyan
+color6: #3E999F
+color14: #3E999F
+
+! white
+color7: #4D4D4C
+color15: #CAB2B2
 
 URxvt.foreground: #4D4D4C
-URxvt.background: #EEEEEE
-*cursorColor: #969694
+Urxvt.background: #EEEEEE
+Urxvt*cursorColor: #969694
 ! black
 URxvt.color0: #d5d5d5
 URxvt.color8: #969694
@@ -35,15 +69,16 @@ URxvt.color14: #3E999F
 URxvt.color7: #4D4D4C
 URxvt.color15: #CAB2B2
 
-!URxvt.font: xft:Fira Mono:pixelsize=14,style=regular
+
+!font: xft:Fira Mono:pixelsize=14,style=regular
 !urxvt.font: xft:DejaVuSansMono:pixelsize=13
-urxvt.font: xft:DejaVuSansMono:pixelsize=14
-!urxvt.font: xft:monaco:style=Regular:antialias=true:size=10
-!URxvt.font: xft:Dina:regular:pixelsize=13
-!URxvt.boldFont: xft:Dina:bold:pixelsize=13
-!URxvt.font: xft:Monaco:regular:antialias=true:pixelsize=12
+!urxvt.font: xft:DejaVuSansMono:pixelsize=14
+urxvt.font: xft:monaco:style=Regular:antialias=true:size=9
+!font: xft:Dina:regular:pixelsize=13
+!boldFont: xft:Dina:bold:pixelsize=13
+!font: xft:Monaco:regular:antialias=true:pixelsize=12
 !Scrollbar
-Urxvt.scrollStyle:rxvt
+URxvt.scrollStyle:rxvt
 URxvt.scrollBar: false
 
 !Rofi simple, small top window
@@ -59,9 +94,9 @@ URxvt.scrollBar: false
 !rofi.yoffset: 30
 !rofi.xoffset:-2
 !rofi.opacity: 98
-!URxvt.perl-ext-common: default,matcher
-!URxvt.url-launcher: /usr/bin/chromium
-!URxvt.matcher.button: 1
+!perl-ext-common: default,matcher
+!url-launcher: /usr/bin/chromium
+!matcher.button: 1
 
 rofi.color-enabled: true
 ! first two color-window were a013191c

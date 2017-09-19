@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
 export VISUAL="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -85,6 +85,7 @@ export CHROMIUM_FLAGS='--enable-remote-extensions'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #General
+alias screenfetch="neofetch"
 alias sf="neofetch"
 alias irssi="screen irssi"
 alias vim="nvim"

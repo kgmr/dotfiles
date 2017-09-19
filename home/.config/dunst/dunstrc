@@ -1,5 +1,5 @@
 [global]
-    font = "dina, 8"
+    font = "Monaco, 8"
     allow_markup = yes
     format = "<b>%s</b> %p\n%b"
     sort = yes
@@ -25,6 +25,7 @@
     dmenu = rofi -show run
     browser = chromium
     icon_position = left
+    max_icon_size = 32
 
 [frame]
     width = 1
@@ -37,12 +38,12 @@
 [urgency_low]
     background = "#fba922"
     foreground = "#000000"
-    timeout = 1
+    timeout = 3
 
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
-    timeout = 10
+    timeout = 5
 
 [urgency_critical]
     background = "#e02e3c"
