@@ -64,15 +64,13 @@
   Mod4 + F3
 ##
 #Dmenu search
-"~/bin/qopen.sh"
+"~/bin/search.sh"
   Menu
-"~/bin/qopen.sh s"
-  Control + Menu
 #add music
 "clerk --add track"
   Shift+Alt + q
 #rate music
-"clerk --rate track" 
+"clerk --rate track"
   Shift+Alt+w
 #clerk
 "clerk"
@@ -133,7 +131,12 @@
   Mod4 + BackSpace
 
 "urxvt -e ranger"
-  Control + Return
+  Mod4 + equal
+"~/bin/walrevert"
+  Mod4 + bracketright
+
+"wal -R"
+  Mod4 + bracketleft
 ##################################
 # End of xbindkeys configuration #
 ##################################

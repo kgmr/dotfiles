@@ -25,7 +25,7 @@
     dmenu = rofi -show run
     browser = chromium
     icon_position = left
-    max_icon_size = 32
+    max_icon_size = 80
 
 [frame]
     width = 1

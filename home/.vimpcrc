@@ -1,0 +1,15 @@
+crossfade 3
+set windows browse,library,playlist,lists
+set window browse
+set ignorecase
+unmap L
+unmap H
+map L :tabnext<CR>
+map H :tabprev<CR>
+map Q :qall<CR>
+unmap f
+unmap z
+unmap c
+map c :consume<CR>
+map z :random<CR>
+map f :findsong 

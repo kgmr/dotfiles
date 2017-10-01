@@ -260,7 +260,7 @@ exec polybar top
 # open certain windows in floating mode
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
-client.focused #333333 #333333 #ffffff #fffffff
+client.focused #eeeeee #eeeeee #333333 #ff6666
 client.focused_inactive #eeeeee #222222 #eeeeee #333333
 client.unfocused #333333 #222222 #eeeeee #222222
 client.urgent #d33682 #d33682 #fdf6e3 #dc322f

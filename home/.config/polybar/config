@@ -1,9 +1,9 @@
 [colors]
-foreground = #4D4D4C
-background = #EEEEEE
-linecolor = #D7005F
-bordercolor = #333
-accent = #4271AE
+foreground = ${xrdb:color7}
+background = ${xrdb:color66}
+linecolor = ${xrdb:color4}
+bordercolor = ${xrdb:color66}
+accent = ${xrdb:color4}
 
 
 [settings]
@@ -196,8 +196,8 @@ label-mode-padding = 2
 label-mode-background = ${colors.accent}
 
 label-focused = %icon%
-label-focused-background = #4271AE
-label-focused-foreground = ${module/bspwm.label-focused-foreground}
+label-focused-background = ${colors.accent}
+label-focused-foreground = ${colors.background}
 label-focused-overline= ${module/bspwm.label-focused-overline}
 label-focused-underline= ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
@@ -216,13 +216,13 @@ label-visible-padding = ${module/bspwm.label-empty-padding}
 [module/cpu]
 type = internal/cpu
 interval = 2
-label = %{F#666}%{F#cc} %percentage%
+label = %{F${colors.linecolor}%{F$colors.linecolor} %percentage%
 
 
 [module/memory]
 type = internal/memory
 interval = 2
-label = %{F#666}%{F#cc} %percentage_used%
+label = %{F${colors.linecolor}%{F#cc} %percentage_used%
 
 
 [module/wifi]
@@ -233,9 +233,9 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 ;format-underline = #ff0000
-;label-connected = %{O-6 F#666}%{O2 F#cc}%downspeed:8% %quality% %signal%
-label-connected = %{O-6 F#666}%{O2 F#cc}%downspeed:8%
-label-disconnected = %{F#666}%{F#cc} not connected
+;label-connected = %{O-6 F${colors.linecolor}%{O2 F#cc}%downspeed:8% %quality% %signal%
+label-connected = %{O-6 F${colors.linecolor}%{O2 F#cc}%downspeed:8%
+label-disconnected = %{F${colors.linecolor}%{F#cc} not connected
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
@@ -243,7 +243,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #666
+ramp-signal-foreground = ${colors.linecolor
 
 
 [module/wired]
@@ -258,7 +258,7 @@ label-disconnected-foreground = #66
 
 [module/date]
 type = internal/date
-date = %%{F#666}%{F-} %d-%m %%{F#e60053}%%{F-} %H:%M
+date = %%{F${colors.linecolor}%{F-} %d-%m  %H:%M
 interval = 5
 click-left = gsimplecalc
 
@@ -268,7 +268,7 @@ format = <ramp> <label>
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = #666
+ramp-foreground = ${colors.linecolor
 label-foreground = ${root.foreground}
 
 
@@ -288,7 +288,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
-ramp-volume-foreground = #666
+ramp-volume-foreground = ${colors.linecolor
 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
@@ -308,17 +308,17 @@ label-discharging = %percentage%
 
 format-full = <label-full>
 format-full-prefix = " "
-format-full-prefix-foreground = #666
+format-full-prefix-foreground = ${colors.linecolor
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = #666
+ramp-capacity-foreground = ${colors.linecolor
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = #666
+animation-charging-foreground = ${colors.linecolor
 animation-charging-framerate = 750
 
 
@@ -348,8 +348,8 @@ label-time-foreground = #77
 
 icon-prev = 
 icon-stop = 
-icon-play = ▶
-icon-pause = ||
+icon-play = ||
+icon-pause = ▶
 icon-next = 
 
 icon-random = 
@@ -420,8 +420,8 @@ type = internal/xkeyboard
 
 blacklist-0 = num lock
 
-;label-layout = %{F#666}%{F#cc} %layout% %name%
-label-layout = %{F#666}%{F#cc} %layout%
+;label-layout = %{F${colors.linecolor}%{F#cc} %layout% %name%
+label-layout = %{F${colors.linecolor}%{F#cc} %layout%
 
 label-indicator-padding = 2
 label-indicator-background = ${colors.accent}

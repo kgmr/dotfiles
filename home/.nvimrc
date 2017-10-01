@@ -34,12 +34,11 @@ Plugin 'neomake/neomake'
 Plugin 'reedes/vim-colors-pencil'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
-Plugin 'mattn/emmet-vim'
 "Requires tern (npm install -g tern)
-Plugin 'carlitux/deoplete-ternjs'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'Dylanaraps/wal.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -56,7 +55,8 @@ if 6 <= hour && hour < 18
 else
   set background=dark
 endif
-colorscheme PaperColor
+"colorscheme PaperColor
+colorscheme wal
 set t_co=256
 
 if exists ("*ToggleBackground") == 0

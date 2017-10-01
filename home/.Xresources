@@ -1,44 +1,49 @@
 ! PaperColor Theme
 
-URxvt.foreground: #4D4D4C
-URxvt.background: #EEEEEE
+*foreground: #4D4D4C
+*background: #EEEEEE
+UXTerm*foreground: #000000
+UXTerm*background: #EEEEEE
+
 *cursorColor: #969694
 ! black
-URxvt.color0: #d5d5d5
-URxvt.color8: #969694
+*color0: #d5d5d5
+*color8: #969694
 
 ! red
-URxvt.color1: #D7005F
-URxvt.color9: #D7005F
+*color1: #D7005F
+*color9: #D7005F
 
 ! green
-URxvt.color2: #718C00
-URxvt.color10: #718C00
+*color2: #718C00
+*color10: #718C00
 
 ! yellow / orange
-URxvt.color3: #D75F00
-URxvt.color11: #D75F00
+*color3: #D75F00
+*color11: #D75F00
 
 ! blue
-URxvt.color4: #4271AE
-URxvt.color12: #4271AE
+*color4: #4271AE
+*color12: #4271AE
 
 ! magenta
-URxvt.color5: #8959A8
-URxvt.color13: #8959A8
+*color5: #8959A8
+*color13: #8959A8
 
 ! cyan
-URxvt.color6: #3E999F
-URxvt.color14: #3E999F
+*color6: #3E999F
+*color14: #3E999F
 
 ! white
-URxvt.color7: #4D4D4C
-URxvt.color15: #CAB2B2
+*color7: #4D4D4C
+*color15: #CAB2B2
 
+!meme
+*color66: #EEEEEE
 !URxvt.font: xft:Fira Mono:pixelsize=14,style=regular
 !urxvt.font: xft:DejaVuSansMono:pixelsize=13
-urxvt.font: xft:DejaVuSansMono:pixelsize=14
-!urxvt.font: xft:monaco:style=Regular:antialias=true:size=10
+!urxvt.font: xft:DejaVuSansMono:pixelsize=14
+urxvt.font: xft:monaco:style=Regular:antialias=true:size=9
 !URxvt.font: xft:Dina:regular:pixelsize=13
 !URxvt.boldFont: xft:Dina:bold:pixelsize=13
 !URxvt.font: xft:Monaco:regular:antialias=true:pixelsize=12
@@ -53,12 +58,12 @@ URxvt.scrollBar: false
 !rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
 !rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
 !rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
-!rofi.width: 1152
-!rofi.lines: 8
-!rofi.location: 2
-!rofi.yoffset: 30
-!rofi.xoffset:-2
-!rofi.opacity: 98
+rofi.width: 1366
+rofi.lines: 5
+rofi.location: 2
+rofi.yoffset: 17
+rofi.xoffset: 0
+rofi.opacity: 92
 !URxvt.perl-ext-common: default,matcher
 !URxvt.url-launcher: /usr/bin/chromium
 !URxvt.matcher.button: 1
@@ -72,10 +77,11 @@ rofi.color-window: argb:a6000000, argb:a6000000, argb:0000000
 rofi.color-normal: argb:0fdf6e3, #ffffff, argb:0eee8d5, #009688, #ffffff
 rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
 rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
-rofi.line-margin: 30
-rofi.font: Roboto Light 28
-rofi.padding: 62
-rofi.fullscreen: true
+rofi.line-margin: 18
+rofi.padding : 20
+rofi.font: Roboto Light 20
+!rofi.fullscreen : true
 rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
+URxvt.depth: 32
