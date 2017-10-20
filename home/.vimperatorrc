@@ -5,3 +5,5 @@ nmap j 3<Down>
 nmap k 3<Up>
 nmap s :o google 
 nmap S :t google 
+map J :tabprevious<CR>
+map K :tabnext<CR>

@@ -340,7 +340,7 @@ format-offline =
 format-offline-foreground = #66
 
 label-offline = [AS disconnected]
-
+label-song = %title% - %artist%
 label-song-maxlen = 30
 label-song-ellipsis = true
 
