@@ -32,7 +32,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'minibufexpl.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'posva/vim-vue'
-Plugin '/altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -43,7 +43,7 @@ syntax enable
 set background=light
 :colorscheme Solarized
 set t_co=256
-set relativenumber
+set number
 "Set paste
 nmap sp :set pastetoggle<CR>
 

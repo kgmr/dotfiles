@@ -88,8 +88,8 @@ export CHROMIUM_FLAGS='--enable-remote-extensions'
 alias screenfetch="neofetch"
 alias sf="neofetch"
 alias irssi="screen irssi"
+alias v="vim"
 alias vim="nvim"
-alias v="nvim"
 alias py="python3"
 alias vo="nvim -c CtrlP"
 #Package management
@@ -117,5 +117,5 @@ alias gitbr="git branch"
 alias gitd="git diff"
 alias gitme="git merge"
 alias gitfe="git fetch"
-
+alias pyenv="source ~/django/bin/activate"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"

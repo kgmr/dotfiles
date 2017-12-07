@@ -109,8 +109,6 @@
 "~/bin/lock.sh && systemctl suspend"
  Shift+Mod4 + Escape
 # Lock and suspend
-"~/bin/lock.sh && systemctl hibernate"
- Control+Mod4 + Escape
 
 "rofi -show"
   Alt + Tab

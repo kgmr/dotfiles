@@ -22,21 +22,20 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'lokaltog/vim-easymotion'
 Plugin 'shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 Plugin 'zchee/deoplete-jedi'
 Plugin 'shougo/neosnippet.vim'
 Plugin 'shougo/neosnippet-snippets'
-Plugin 'scrooloose/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ap/vim-buftabline'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'neomake/neomake'
-Plugin 'reedes/vim-colors-pencil'
+Plugin 'scrooloose/nerdtree'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
 "Requires tern (npm install -g tern)
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'Yggdroot/indentLine'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'Dylanaraps/wal.vim'
 
@@ -55,8 +54,8 @@ if 6 <= hour && hour < 18
 else
   set background=dark
 endif
-"colorscheme PaperColor
-colorscheme wal
+colorscheme PaperColor
+"colorscheme wal
 set t_co=256
 
 if exists ("*ToggleBackground") == 0
