@@ -152,6 +152,7 @@ bindsym $mod+1 workspace 1:1st
 bindsym $mod+2 workspace 2:2nd
 bindsym $mod+3 workspace 3:3rd
 bindsym $mod+4 workspace 4:4th
+bindsym $mod+5 workspace 5:5th
 
 
 
@@ -164,6 +165,7 @@ bindsym $mod+Shift+1 move container to workspace 1:1st
 bindsym $mod+Shift+2 move container to workspace 2:2nd
 bindsym $mod+Shift+3 move container to workspace 3:3rd
 bindsym $mod+Shift+4 move container to workspace 4:4th
+bindsym $mod+Shift+5 move container to workspace 5:5th
 
 
 
@@ -228,29 +230,30 @@ for_window [class="MComix"] floating enable
 for_window [class="xpad"] floating enable
 for_window [class="(?i)gsimplecal"] floating enable, move position mouse
 for_window [class="Latte Shell"] floating enable
-
+# floating workspace
+for_window [workspace="5"] floating enable 
 #exec polybar top
 #go(po) home
 
 #i3status
-bar {
-  position top
-  separator_symbol " "
-  tray_output none
-  status_command ~/.i3bar.sh
-  strip_workspace_numbers yes
-    colors {
-        background #282828
-        statusline #ebdbb2 #that neon blue
-        separator #383838
-
-        focused_workspace  #83a598 #fbf1c7 #504945
-        active_workspace   #504945 #504945 #ebdbb2
-        inactive_workspace #333333 #282828 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-    }
-
-}
+#bar {
+#  position top
+#  separator_symbol " "
+#  tray_output none
+#  status_command ~/.i3bar.sh
+#  strip_workspace_numbers yes
+#    colors {
+#        background #282828
+#        statusline #ebdbb2 #that neon blue
+#        separator #383838
+#
+#        focused_workspace  #83a598 #fbf1c7 #504945
+#        active_workspace   #504945 #504945 #ebdbb2
+#        inactive_workspace #333333 #282828 #888888
+#        urgent_workspace   #2f343a #900000 #ffffff
+#    }
+#
+#}
 
 
 
@@ -261,6 +264,7 @@ exec polybar top
 # open certain windows in floating mode
 for_window [class="(?i)gnome-calculator"] floating enable
 for_window [class="Gcalctool"] floating enable
+for_window [class="Ahoviewer"] floating enable
 client.focused #eeeeee #eeeeee #333333 #ff6666
 client.focused_inactive #eeeeee #222222 #eeeeee #333333
 client.unfocused #333333 #222222 #eeeeee #222222

@@ -54,7 +54,7 @@ if 6 <= hour && hour < 18
 else
   set background=dark
 endif
-colorscheme PaperColor
+colorscheme solarized
 "colorscheme wal
 set t_co=256
 
@@ -110,7 +110,7 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'solarized',
       \ }
 "buffers
 
