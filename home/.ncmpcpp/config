@@ -11,7 +11,7 @@ now_playing_suffix = "$/b"
 playlist_display_mode = "columns" (classic/columns)
 autocenter_mode = "yes"
 centered_cursor = "yes"
-
+colors_enabled = "no"
 # Bars
 song_status_format = "$8%t $1• $2%a $1•{ $5%b $1• }$7%y$1"
 progressbar_look = "─╼╌"

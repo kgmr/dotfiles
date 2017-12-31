@@ -29,7 +29,7 @@ font pango: Dina 8, FontAwesome, 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec termite
 
 
 

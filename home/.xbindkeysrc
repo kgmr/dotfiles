@@ -53,15 +53,15 @@
 
 ##Play Pause
 "mpc toggle"
-  Mod4 + F9
+  Mod4 + Escape
 
 ## Next
 "mpc next"
-  Mod4 + F10
+  Mod4 + F2
 
 ##Prev
 "mpc prev"
-  Mod4 + F3
+  Mod4 + F1
 ##
 #Dmenu search
 "~/bin/search.sh"
