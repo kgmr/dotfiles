@@ -38,25 +38,26 @@ Plugin 'nvie/vim-flake8'
 "Requires tern (npm install -g tern)
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'Dylanaraps/wal.vim'
-
+Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 "Conf
+let base16colorspace=256
 set hlsearch
 syntax enable
 "switcheroo
 let hour = strftime("%H")
 if 6 <= hour && hour < 18
   set background=light
+  colorscheme base16-tomorrow
 else
   set background=dark
+  colorscheme base16-gruvbox-dark-pale
 endif
-colorscheme solarized
 "colorscheme wal
-set t_co=256
 
 if exists ("*ToggleBackground") == 0
     function ToggleBackground()
@@ -110,7 +111,7 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'PaperColor',
       \ }
 "buffers
 
