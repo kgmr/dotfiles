@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+from cursesmenu import *
+from cursesmenu.items import *
+import sys
+import subprocess
+import feedparser
+
+
+class nyaaFeed():
+    def search(self, term="", category="english", filtering=""):
+        if category == "english":
+            self.cat = "1_2"
+        else:
+            self.cat = "1_0"
+
+        if filtering == "trusted":
+            self.filt = "2"
+        else:
+            self.filt = "0"
+
+        self.query = term.replace(" ", "+")
+        link = "https://www.nyaa.si/?page=rss&c=" + self.cat + "&q=" \
+                + self.query + "&f="+ self.filt
+
+        feed = feedparser.parse(link)
+
+        return feed.entries
+
+
+s = nyaaFeed()
+args = ""
+for i in range(1, len(sys.argv)):
+    args = args + " " + sys.argv[i]
+menu = CursesMenu("Nyaa", args)
+results = s.search(term=args)
+for entry in results:
+    item = SelectionItem(entry.title,entry)
+    menu.append_item(item)
+while True:
+    menu.show()
+    sel = menu.selected_option
+
+    subprocess.Popen(['transmission-qt', results[sel].link])
