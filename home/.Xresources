@@ -2,8 +2,6 @@
 
 *foreground: #4D4D4C
 *background: #EEEEEE
-UXTerm*foreground: #4D4D4C
-UXTerm*background: #EEEEEE
 
 *cursorColor: #969694
 ! black
