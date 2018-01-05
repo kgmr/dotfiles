@@ -34,8 +34,10 @@ Plugin 'neomake/neomake'
 Plugin 'scrooloose/nerdtree'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
-"Requires tern (npm install -g tern)
 Plugin 'chriskempson/base16-vim'
+Plugin 'vimwiki/vimwiki'
+Plugin 'tbabej/taskwiki'
+Plugin 'blindFS/vim-taskwarrior'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
