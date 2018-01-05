@@ -30,14 +30,11 @@ Plugin 'shougo/neosnippet-snippets'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ap/vim-buftabline'
 Plugin 'farmergreg/vim-lastplace'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'neomake/neomake'
 Plugin 'scrooloose/nerdtree'
 "Requires flake8
 Plugin 'nvie/vim-flake8'
 "Requires tern (npm install -g tern)
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'Dylanaraps/wal.vim'
 Plugin 'chriskempson/base16-vim'
 
 " All of your Plugins must be added before the following line

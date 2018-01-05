@@ -104,10 +104,10 @@
   Mod4 + t
 #lock screen
 "~/bin/lock.sh"
- Mod4 + Escape
+ Shift+Mod4 + Escape
 #Lock screen and hibernate
 "~/bin/lock.sh && systemctl suspend"
- Shift+Mod4 + Escape
+ Control+Mod4 + Escape
 # Lock and suspend
 
 "rofi -show"

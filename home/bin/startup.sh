@@ -4,7 +4,7 @@ if [ "$(pidof xbindkeys)" ]; then
 else
 xbindkeys&
 fcitx&
-termite.sh&
+~/bin/termite.sh &
 unclutter -grab &
 nm-applet&
 redshift-gtk&
