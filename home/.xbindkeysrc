@@ -64,8 +64,6 @@
   Mod4 + F1
 ##
 #Dmenu search
-"~/bin/search.sh"
-  Menu
 #add music
 "clerk --add track"
   Shift+Alt + q
@@ -128,13 +126,9 @@
 "qutebrowser"
   Mod4 + BackSpace
 
-"urxvt -e ranger"
+"termite -e ranger"
   Mod4 + equal
-"~/bin/walrevert"
-  Mod4 + bracketright
 
-"wal -R"
-  Mod4 + bracketleft
 ##################################
 # End of xbindkeys configuration #
 ##################################

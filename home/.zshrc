@@ -87,14 +87,21 @@ export CHROMIUM_FLAGS='--enable-remote-extensions'
 #General
 alias sf="neofetch"
 alias irssi="screen irssi"
-alias v="vim"
-alias vim="nvim"
+alias cal="cal -j"
 alias py="python3"
+#vim 
+alias v="nvim"
+alias vim="nvim"
+alias vi="nvim"
 alias vo="nvim -c CtrlP"
+alias vw="nvim -c VimwikiIndex"
+alias vp="nvim ~/.senttemplate"
+alias present="sent"
+alias nyaa="nyaacli 720"
 #Package management
 alias pac="sudo pacman -S"
 alias pacs="pacman -Ss"
-alias pacr="sudo pacman -R"
+alias pacr="sudo pacman -Rns"
 alias aur="sudo aura -A"
 alias aurs="aura -As"
 #Tmux
@@ -117,7 +124,6 @@ alias gitd="git diff"
 alias gitme="git merge"
 alias gitfe="git fetch"
 alias pyenv="source ~/django/bin/activate"
-alias= streamlink="streamlink --player='mpv -vd-lavc-skiploopfilter=none'"
 # todos
 alias tasks="vit"
 alias ta="task add"
@@ -130,6 +136,7 @@ alias td="task done"
 alias te="task edit"
 alias tm="task modify"
 alias tr="task rm"
+alias f="ranger"
 tlp(){
 	task list project:"$1"
 }

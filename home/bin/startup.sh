@@ -2,18 +2,17 @@ if [ "$(pidof xbindkeys)" ]; then
 
     notify-send "Services already active"
 else
-xbindkeys&
+~/bin/wallpaper.sh &
+xbindkeys &
+unclutter -grab &
 fcitx&
 ~/bin/termite.sh &
-unclutter -grab &
-nm-applet&
-redshift-gtk&
+redshift-gtk &
 compton --xrender-sync-fence &
-volumeicon&
-parcellite&
-fcitx&
-xfce4-power-manager&
-~/bin/wallpaper.sh&
+volumeicon &
+parcellite &
+xfce4-power-manager &
 dunst&
+slstatus &
 
 fi

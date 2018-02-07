@@ -30,4 +30,5 @@ c.url.searchengines = {
 }
 
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
+c.tabs.background = True
 

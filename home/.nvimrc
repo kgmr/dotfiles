@@ -38,6 +38,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'tbabej/taskwiki'
 Plugin 'blindFS/vim-taskwarrior'
+Plugin 'StanAngeloff/php.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
