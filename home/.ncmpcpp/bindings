@@ -45,5 +45,3 @@ def_key "J"
 def_key "K"
     move_sort_order_up
 
-def_key "a"
-    add_item_to_playlist

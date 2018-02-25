@@ -420,7 +420,6 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
   "perl/core/scripts" = {
-    nicklist_automode = "screen";
     nicklist_width = "20";
     dccstat_EXPERIMENTAL_fast_refresh = "no";
     dccstat_short_mode = "yes";

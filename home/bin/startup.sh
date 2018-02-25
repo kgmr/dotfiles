@@ -8,7 +8,8 @@ unclutter -grab &
 fcitx&
 ~/bin/termite.sh &
 redshift-gtk &
-compton --xrender-sync-fence &
+#compton --xrender-sync-fence &
+xcompmgr&
 volumeicon &
 parcellite &
 xfce4-power-manager &

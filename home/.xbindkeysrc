@@ -62,6 +62,8 @@
 ##Prev
 "mpc prev"
   Mod4 + F1
+"~/bin/favsong && notify-send 'Song added to favorites'"
+  Mod4 + F4
 ##
 #Dmenu search
 #add music

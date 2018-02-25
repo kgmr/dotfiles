@@ -89,6 +89,7 @@ alias sf="neofetch"
 alias irssi="screen irssi"
 alias cal="cal -j"
 alias py="python3"
+alias mpd="mpd && mpDris2&"
 #vim 
 alias v="nvim"
 alias vim="nvim"

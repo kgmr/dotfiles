@@ -26,7 +26,9 @@ do
         #dunst n shiet
 		#notify-send -a "Now Playing" -i ~/.cover/"$title".png "$title - $artist""\n$album\n\n$dur" 
         #most DEs
+        if [ "$title" != "" ]; then
 		notify-send -a "Now Playing" -i ~/.cover/"$title".png "$title - $artist" 
+        fi
 	fi
 
 done
