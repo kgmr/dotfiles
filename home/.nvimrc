@@ -17,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'lokaltog/vim-easymotion'
@@ -39,7 +38,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'tbabej/taskwiki'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'StanAngeloff/php.vim'
-
+Plugin 'mattn/emmet-vim'
+Plugin 'Shougo/denite.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,13 +71,15 @@ if exists ("*ToggleBackground") == 0
 
     command Togglebg call ToggleBackground()
 endif
-map <F4> :Togglebg<CR>
 set number
 "Set paste
 
-"Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_by_filename = 1
+"Denite
+nnoremap  <C-p> :Denite file_rec<CR>
+nnoremap  tb :Denite buffer<CR>
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
 let g:user_emmet_install_global = 0
@@ -88,6 +90,9 @@ ino jj <esc>
 cno jj <c-c>
 "ezmotion
 nmap f <Plug>(easymotion-overwin-f)
+let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
+"nmap F <Plug>(easymotion-F)
+"nmap f <Plug>(easymotion-f)
 
 "Neomake
 
