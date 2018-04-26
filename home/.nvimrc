@@ -40,7 +40,9 @@ Plugin 'blindFS/vim-taskwarrior'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/denite.nvim'
-
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'zchee/deoplete-clang' 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -141,3 +143,5 @@ nnoremap <C-H> <C-W><C-H>
 set pastetoggle=<F2>
 "close scratch
 autocmd CompleteDone * pclose
+"clear search results
+nnoremap <esc> :noh<return><esc>

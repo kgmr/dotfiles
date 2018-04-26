@@ -90,6 +90,14 @@ alias irssi="screen irssi"
 alias cal="cal -j"
 alias py="python3"
 alias mpd="mpd && mpDris2&"
+# programming
+crun(){
+	cc "$1" -o out && ./out
+}
+alias makerun="make && ./out"
+glrun(){
+    g++ "$1" -lGL -lSOIL -lGLU -lglut -o out && ./out
+}
 #vim 
 alias v="nvim"
 alias vim="nvim"
@@ -137,7 +145,11 @@ alias te="task edit"
 alias tm="task modify"
 alias tr="task rm"
 alias f="ranger"
+
+#paths
+alias comgra="cd ~/Documents/comgra/"
 tlp(){
 	task list project:"$1"
 }
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
