@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 :set mouse=a
+set cc=80
 
 set expandtab
 set shiftwidth=4
@@ -43,6 +44,7 @@ Plugin 'Shougo/denite.nvim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'zchee/deoplete-clang' 
+Plugin 'lervag/vimtex' 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -141,7 +143,14 @@ nnoremap <C-H> <C-W><C-H>
 
 " paste
 set pastetoggle=<F2>
+:inoremap <C-v> <ESC>"+pa
+:vnoremap <C-c> "+y
+:vnoremap <C-d> "+d
 "close scratch
 autocmd CompleteDone * pclose
 "clear search results
 nnoremap <esc> :noh<return><esc>
+
+" tex
+let g:vimtex_view_method = 'zathura'
+

@@ -1,10 +1,11 @@
 #!/bin/bash
 #run with any arg to suspend after locking
-TMPBG=/tmp/screen.png
+TMPBG=$HOME/.lockscreen.png
+rm $TMPBG
 LOCK=$HOME/.lock.png
 RES=1366x768
 
-ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY -i $LOCK -filter_complex "boxblur=5:1,overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -vframes 1 $TMPBG
+ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY -i $LOCK -filter_complex "boxblur=5:1,overlay=(main_w-overlay_w)/2:(main_h-overlay_h)/2" -vframes 1 $TMPBG 
 i3lock -u -l -i $TMPBG
 
 if [ $1 ]; then

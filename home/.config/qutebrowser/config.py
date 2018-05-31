@@ -28,7 +28,10 @@ c.url.searchengines = {
     "y": "https://youtube.com/results?search_query={}",
     "aw": "https://wiki.archlinux.org/?search={}"
 }
-
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
 c.tabs.background = True
 
+
+c.downloads.location.remember = True
+c.url.start_pages = "file:///home/kassio/.startpage/startpage.html"
+config.bind('gh', 'home')

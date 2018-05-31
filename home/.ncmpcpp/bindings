@@ -40,8 +40,8 @@ def_key "N"
 
 # not used but bound
 def_key "J"
-    move_sort_order_down
+    move_end
 
 def_key "K"
-    move_sort_order_up
+    move_home
 

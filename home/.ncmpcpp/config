@@ -5,6 +5,7 @@ visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "▪▌"
 visualizer_color = "red"
+cyclic_scrolling = yes
 
 
 progressbar_look = "▀▀ "

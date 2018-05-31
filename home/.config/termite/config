@@ -1,7 +1,7 @@
 [options]
 allow_bold = false
 clickable_url = true
-font = Monaco 10
+font = Monaco 15px
 
 [colors]
 # Base16 Tomorrow

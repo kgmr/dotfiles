@@ -103,12 +103,11 @@
 "~/bin/stalonetray.sh"
   Mod4 + t
 #lock screen
-"~/bin/lock.sh"
+"~/bin/slock.sh"
  Shift+Mod4 + Escape
-#Lock screen and hibernate
-"~/bin/lock.sh && systemctl suspend"
+#Lock screen and suspend
+"~/bin/slock.sh suspend"
  Control+Mod4 + Escape
-# Lock and suspend
 
 "rofi -show"
   Alt + Tab
