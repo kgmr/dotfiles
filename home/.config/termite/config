@@ -4,50 +4,50 @@ clickable_url = true
 font = Monaco 15px
 
 [colors]
-# Base16 Tomorrow
-# Author: Chris Kempson (http://chriskempson.com)
+# Base16 Gruvbox light, soft
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-foreground      = #4d4d4c
-foreground_bold = #282a2e
-cursor          = #282a2e
-background      = #ffffff
+foreground      = #504945
+foreground_bold = #3c3836
+cursor          = #3c3836
+background      = #f2e5bc
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #ffffff
-color8  = #8e908c
-color7  = #4d4d4c
-color15 = #1d1f21
+color0  = #f2e5bc
+color8  = #bdae93
+color7  = #504945
+color15 = #282828
 
 # Red
-color1  = #c82829
-color9  = #c82829
+color1  = #9d0006
+color9  = #9d0006
 
 # Green
-color2  = #718c00
-color10 = #718c00
+color2  = #79740e
+color10 = #79740e
 
 # Yellow
-color3  = #eab700
-color11 = #eab700
+color3  = #b57614
+color11 = #b57614
 
 # Blue
-color4  = #4271ae
-color12 = #4271ae
+color4  = #076678
+color12 = #076678
 
 # Purple
-color5  = #8959a8
-color13 = #8959a8
+color5  = #8f3f71
+color13 = #8f3f71
 
 # Teal
-color6  = #3e999f
-color14 = #3e999f
+color6  = #427b58
+color14 = #427b58
 
 # Extra colors
-color16 = #f5871f
-color17 = #a3685a
-color18 = #e0e0e0
-color19 = #d6d6d6
-color20 = #969896
-color21 = #282a2e
+color16 = #af3a03
+color17 = #d65d0e
+color18 = #ebdbb2
+color19 = #d5c4a1
+color20 = #665c54
+color21 = #3c3836

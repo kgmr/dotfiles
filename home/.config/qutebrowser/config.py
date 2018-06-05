@@ -1,4 +1,3 @@
-
 config.bind('t', 'set-cmd-text -s :open -t')
 
 config.bind('O', 'set-cmd-text :open {url:pretty}')
@@ -35,3 +34,4 @@ c.tabs.background = True
 c.downloads.location.remember = True
 c.url.start_pages = "file:///home/kassio/.startpage/startpage.html"
 config.bind('gh', 'home')
+
