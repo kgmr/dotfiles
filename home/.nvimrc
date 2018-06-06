@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set gdefault                  " replace g default
 filetype off                  " required
 :set mouse=a
 set cc=80
@@ -45,6 +46,8 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'zchee/deoplete-clang' 
 Plugin 'lervag/vimtex' 
+Plugin 'Yggdroot/indentLine'
+Plugin 'pseewald/vim-anyfold'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -143,9 +146,12 @@ nnoremap <C-H> <C-W><C-H>
 
 " paste
 set pastetoggle=<F2>
-:inoremap <C-v> <ESC>"+pa
-:vnoremap <C-c> "+y
-:vnoremap <C-d> "+d
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+vnoremap <C-d> "+d
+"S s
+:vnoremap S s
+:vnoremap s S
 "close scratch
 autocmd CompleteDone * pclose
 "clear search results
@@ -154,3 +160,6 @@ nnoremap <esc> :noh<return><esc>
 " tex
 let g:vimtex_view_method = 'zathura'
 
+"folding
+let anyfold_activate=1
+set foldlevel=5
