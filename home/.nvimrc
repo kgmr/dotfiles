@@ -48,6 +48,7 @@ Plugin 'zchee/deoplete-clang'
 Plugin 'lervag/vimtex' 
 Plugin 'Yggdroot/indentLine'
 Plugin 'pseewald/vim-anyfold'
+Plugin 'adelarsq/vim-matchit'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
