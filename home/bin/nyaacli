@@ -41,4 +41,4 @@ while True:
     menu.show()
     sel = menu.selected_option
 
-    subprocess.Popen(['transmission-qt', results[sel].link])
+    subprocess.Popen(['transmission-qt', results[sel].link], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)

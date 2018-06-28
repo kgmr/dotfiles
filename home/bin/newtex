@@ -1,0 +1,18 @@
+#!/bin/sh
+#arg 1 = type, arg2=filename
+# arg1 = beamer, essay, assignment
+if [ $1 ] && [ $2 ]; then
+    if [ ! -f "$2.tex" ]; then
+        if [ $1 == "beamer" ] || [ $1 == "assignment" ] || [ $1 == "essay" ]; then
+            cp ~/tex/$1.tex $2.tex && nvim $2.tex
+        else
+            echo "Usage: newtex type(beamer,template,essay) filename"
+        fi
+    else
+        echo "file exists launching editor"
+        sleep 2
+        nvim $2.tex
+    fi
+else
+    echo "Usage: newtex type(beamer,template,essay) filename"
+fi

@@ -43,12 +43,14 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/denite.nvim'
 Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
 Plugin 'zchee/deoplete-clang' 
 Plugin 'lervag/vimtex' 
 Plugin 'Yggdroot/indentLine'
 Plugin 'pseewald/vim-anyfold'
 Plugin 'adelarsq/vim-matchit'
+Plugin 'tpope/vim-markdown'
+Plugin 'mateusbraga/vim-spell-pt-br'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -134,8 +136,7 @@ let g:lightline = {
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
-map gt :bnext<CR>
-"run
+map gt :bnext<CR> "run
 "space meme
 nmap <space> :
 
@@ -150,9 +151,6 @@ set pastetoggle=<F2>
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
 vnoremap <C-d> "+d
-"S s
-:vnoremap S s
-:vnoremap s S
 "close scratch
 autocmd CompleteDone * pclose
 "clear search results
@@ -164,3 +162,11 @@ let g:vimtex_view_method = 'zathura'
 "folding
 let anyfold_activate=1
 set foldlevel=5
+" jump points
+inoremap <Leader>c <++>
+inoremap <leader>n <Esc>/<++><Enter>"_c4l
+noremap <leader>n <Esc>/<++><Enter>"_c4l
+"spellchecking
+map <F6> :setlocal spell! spelllang=pt_br<CR>
+let spell_auto_type="tex,md"
+nnoremap zz z=

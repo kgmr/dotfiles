@@ -37,6 +37,11 @@ def_key "n"
 def_key "N"
     previous_found_item
 
+def_key "b"
+    seek_forward
+
+def_key "B"
+    seek_backward
 
 # not used but bound
 def_key "J"
