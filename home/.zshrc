@@ -85,11 +85,13 @@ export CHROMIUM_FLAGS='--enable-remote-extensions'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #General
+alias minidlna="minidlnad -d -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid"
+alias mediaserver="minidlna"
 alias sf="neofetch"
 alias irssi="screen irssi"
 alias cal="cal -j"
 alias py="python3"
-alias mpd="mpd && mpDris2&"
+alias mpd="mpd && mpDris2 >> /dev/null &"
 # programming
 crun(){
 	cc "$1" -o out && ./out

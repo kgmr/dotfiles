@@ -1,0 +1,3 @@
+hls-segment-threads 3
+hls-live-edge 1
+player=mpv -vd-lavc-skiploopfilter=none --cache 256

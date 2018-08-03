@@ -136,7 +136,7 @@ let g:lightline = {
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
-map gt :bnext<CR> "run
+map gt :bnext<CR>
 "space meme
 nmap <space> :
 
