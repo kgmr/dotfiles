@@ -36,9 +36,6 @@ MainPane = tk.PanedWindow(orient=tk.VERTICAL)
 MainPane.add(ControlPane)
 MainPane.add(ListPane)
 
-
-
-
 #missing command parameter
 radiovar = tk.IntVar()
 RadioDownload = tk.Radiobutton(window,text="Download", variable = radiovar, value = 1)
@@ -53,11 +50,8 @@ SearchList.insert(tk.END,"Ativar a opção stream abre o link no webtorrent se e
 SearchList.insert(tk.END,"www.webtorrent.io")
 searched = 0
 
-
 #value = widget.get(selection[0])
 #print "selection:", selection, ": '%s'" % value
-
-
 
 def performSearch():
     global searched
@@ -83,9 +77,6 @@ def openFile(event):
                 process = subprocess.Popen([webtorrent,selected.link])
             else:
                 os.startfile(selected.link)
-
-
-
 
 SearchList.bind("<<ListboxSelect>>", openFile)
 
