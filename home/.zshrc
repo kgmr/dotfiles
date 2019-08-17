@@ -3,6 +3,8 @@
 export VISUAL="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+#wal colors
+cat /home/kassio/.cache/wal/sequences
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -108,13 +110,13 @@ alias vo="nvim -c CtrlP"
 alias vw="nvim -c VimwikiIndex"
 alias vp="nvim ~/.senttemplate"
 alias present="sent"
-alias nyaa="nyaacli 720"
+alias nyaa="nyaacli horrible 720"
 #Package management
 alias pac="sudo pacman -S"
 alias pacs="pacman -Ss"
 alias pacr="sudo pacman -Rns"
-alias aur="sudo aura -A"
-alias aurs="aura -As"
+alias aur="sudo pikaur -S"
+alias aurs="pikaur -Ss"
 #Tmux
 alias tms="tmux new-session -s"
 alias tml="tmux list-sessions"

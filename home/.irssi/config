@@ -416,7 +416,7 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Uzihs"; user_name = "Uzihs"; nick = "Uzihs"; };
+  core = { real_name = "Uzihs"; user_name = "Uzihs"; nick = "Beta"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "xchat"; };
   "perl/core/scripts" = {

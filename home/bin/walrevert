@@ -1,4 +1,2 @@
 xrdb ~/.Xresources
-pkill polybar
-polybar top&
 ~/bin/wallpaper.sh

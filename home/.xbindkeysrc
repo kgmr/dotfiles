@@ -112,9 +112,6 @@
 "rofi -show"
   Alt + Tab
 
-"maim ~/Pictures/Capture/$(date +%F-%T).png"
-  Print
-
 "maim ~/Pictures/Capture/$(date +%F-%T).png -s"
   Shift + Print
 #wifi script

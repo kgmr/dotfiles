@@ -1,9 +1,10 @@
+#!/bin/sh
 if [ "$(pidof xbindkeys)" ]; then
 
     notify-send "Services already active"
 else
 ~/bin/wallpaper.sh &
-xbindkeys &
+cd ~/ && xbindkeys &
 unclutter -grab &
 fcitx&
 ~/bin/termite.sh &
@@ -15,5 +16,5 @@ parcellite &
 xfce4-power-manager &
 dunst&
 slstatus &
-
+djmount ~/dlna &
 fi

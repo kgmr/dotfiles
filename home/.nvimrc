@@ -170,3 +170,4 @@ noremap <leader>n <Esc>/<++><Enter>"_c4l
 map <F6> :setlocal spell! spelllang=pt_br<CR>
 let spell_auto_type="tex,md"
 nnoremap zz z=
+map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>

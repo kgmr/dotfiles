@@ -1,2 +1,5 @@
 colorscheme PaperColor
-:Guifont DejaVuSansMono:h11
+if exists('g:GuiLoaded')
+    Guifont Monaco:h11
+    GuiTabline 0
+end
