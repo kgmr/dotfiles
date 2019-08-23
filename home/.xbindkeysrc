@@ -127,6 +127,8 @@
 "termite -e ranger"
   Mod4 + equal
 
+"~/bin/switchtermfont.sh"
+  Mod4 + F12
 ##################################
 # End of xbindkeys configuration #
 ##################################

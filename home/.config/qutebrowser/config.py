@@ -6,6 +6,8 @@ config.bind('h', 'tab-prev')
 config.bind('gr', 'tab-prev')
 config.bind('l', 'tab-next')
 config.bind('gt', 'tab-next')
+config.bind('m', 'spawn mpv {url}')
+config.bind('M', 'hint links spawn mpv {hint-url}')
 
 config.bind('b', 'set-cmd-text -s :buffer')
 
