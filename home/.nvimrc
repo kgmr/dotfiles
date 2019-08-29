@@ -7,6 +7,8 @@ set cc=80
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set ignorecase
+set smartcase
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -41,16 +43,19 @@ Plugin 'tbabej/taskwiki'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'Shougo/denite.nvim'
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
-Plugin 'zchee/deoplete-clang' 
 Plugin 'lervag/vimtex' 
 Plugin 'Yggdroot/indentLine'
-Plugin 'pseewald/vim-anyfold'
 Plugin 'adelarsq/vim-matchit'
+Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-markdown'
 Plugin 'mateusbraga/vim-spell-pt-br'
+Plugin 'jwalton512/vim-blade'
+Plugin 'phpactor/phpactor'
+Plugin 'kristijanhusak/deoplete-phpactor'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -60,36 +65,10 @@ let base16colorspace=256
 set hlsearch
 syntax enable
 "switcheroo
-let hour = strftime("%H")
-if 6 <= hour && hour < 18
-  set background=light
-  colorscheme base16-tomorrow
-else
-  set background=dark
-  colorscheme base16-gruvbox-dark-pale
-endif
-"colorscheme wal
+colorscheme default
 
-if exists ("*ToggleBackground") == 0
-    function ToggleBackground()
-        if &background == "dark"
-            set background=light
-        else
-            set background=dark
-        endif
-    endfunction
-
-    command Togglebg call ToggleBackground()
-endif
 set number
 "Set paste
-
-"Denite
-nnoremap  <C-p> :Denite file_rec<CR>
-nnoremap  tb :Denite buffer<CR>
-call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
 let g:user_emmet_install_global = 0
@@ -127,7 +106,7 @@ map tt :NERDTreeToggle<CR>
 "Line
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'default',
       \ }
 "buffers
 
@@ -137,6 +116,8 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
 map gt :bnext<CR>
+noremap <F3> :colorscheme default<CR>
+noremap <F4> :colorscheme base16-gruvbox-dark-pale<CR>
 "space meme
 nmap <space> :
 
@@ -159,9 +140,6 @@ nnoremap <esc> :noh<return><esc>
 " tex
 let g:vimtex_view_method = 'zathura'
 
-"folding
-let anyfold_activate=1
-set foldlevel=5
 " jump points
 inoremap <Leader>c <++>
 inoremap <leader>n <Esc>/<++><Enter>"_c4l
@@ -171,3 +149,6 @@ map <F6> :setlocal spell! spelllang=pt_br<CR>
 let spell_auto_type="tex,md"
 nnoremap zz z=
 map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>
+
+" remove buffer
+noremap bd :bdelete<CR>
