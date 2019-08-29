@@ -1,7 +1,7 @@
 [options]
 allow_bold = false
 clickable_url = true
-font = Monaco 15px
+font = Tewi
 
 [colors]
 # Base16 Gruvbox dark, pale

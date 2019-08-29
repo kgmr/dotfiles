@@ -65,7 +65,7 @@ urxvt*matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 rofi.width: 1366
 rofi.lines: 5
 rofi.location: 2
-rofi.yoffset: 17
+rofi.yoffset: 13
 rofi.xoffset: 0
 rofi.opacity: 92
 !URxvt.perl-ext-common: default,matcher
@@ -88,4 +88,4 @@ rofi.font: Roboto Light 20
 rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
-URxvt.depth: 32
+!URxvt.depth: 32
