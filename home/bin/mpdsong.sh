@@ -8,7 +8,6 @@
             fi
                 artist=$(playerctl metadata artist)
                 playing=$(playerctl metadata title)
-				size=${#playing}
                 if [ "$artist" != "" ]; then
                     playing="$playing by $artist"
                 fi
