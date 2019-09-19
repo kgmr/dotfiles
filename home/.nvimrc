@@ -1,6 +1,4 @@
-set nocompatible              " be iMproved, required
-set gdefault                  " replace g default
-filetype off                  " required
+set gdefault                  
 :set mouse=a
 set cc=80
 
@@ -9,71 +7,49 @@ set shiftwidth=4
 set tabstop=4
 set ignorecase
 set smartcase
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"plug
+call plug#begin('~/.local/share/nvim/plugged')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'lokaltog/vim-easymotion'
-Plugin 'shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-Plugin 'zchee/deoplete-jedi'
-Plugin 'shougo/neosnippet.vim'
-Plugin 'shougo/neosnippet-snippets'
-Plugin 'itchyny/lightline.vim'
-Plugin 'ap/vim-buftabline'
-Plugin 'farmergreg/vim-lastplace'
-Plugin 'neomake/neomake'
-Plugin 'scrooloose/nerdtree'
-"Requires flake8
-Plugin 'nvie/vim-flake8'
-Plugin 'chriskempson/base16-vim'
-Plugin 'vimwiki/vimwiki'
-Plugin 'tbabej/taskwiki'
-Plugin 'blindFS/vim-taskwarrior'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'xolox/vim-misc'
-"Plugin 'xolox/vim-easytags'
-Plugin 'lervag/vimtex' 
-Plugin 'Yggdroot/indentLine'
-Plugin 'adelarsq/vim-matchit'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-markdown'
-Plugin 'mateusbraga/vim-spell-pt-br'
-Plugin 'jwalton512/vim-blade'
-Plugin 'phpactor/phpactor'
-Plugin 'kristijanhusak/deoplete-phpactor'
-Plugin 'dylanaraps/wal.vim'
-Plugin 'kien/ctrlp.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'lokaltog/vim-easymotion'
+Plug 'shougo/neosnippet.vim'
+Plug 'shougo/neosnippet-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
+Plug 'farmergreg/vim-lastplace'
+Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
+Plug 'chriskempson/base16-vim'
+Plug 'vimwiki/vimwiki'
+Plug 'tbabej/taskwiki'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'mattn/emmet-vim'
+Plug 'xolox/vim-misc'
+Plug 'lervag/vimtex' 
+Plug 'Yggdroot/indentLine'
+Plug 'adelarsq/vim-matchit'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-markdown'
+Plug 'mateusbraga/vim-spell-pt-br'
+Plug 'dylanaraps/wal.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 "Conf
 let base16colorspace=256
 set hlsearch
 syntax enable
-"switcheroo
 colorscheme default
 
-set number
-"Set paste
+set relativenumber
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-"autosave
 "Main key and esc
 ino jj <esc>
 cno jj <c-c>
@@ -84,22 +60,7 @@ let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 "nmap f <Plug>(easymotion-f)
 
 "Neomake
-
 autocmd! BufWritePost * Neomake
-"Neocomplete
-" Use neocomplete.
-let g:deoplete#enable_at_startup = 1
-"python function docs
-let g:deoplete#sources#jedi#show_docstring=1
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-"snip
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 "Tree
 map tt :NERDTreeToggle<CR>
 :let g:NERDTreeWinSize=25
@@ -109,14 +70,11 @@ let g:lightline = {
       \ 'colorscheme': 'default',
       \ }
 "buffers
-
-
-
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
 map gt :bnext<CR>
-noremap <F3> :colorscheme default<CR>
+noremap <F3> :colorscheme wal<CR>
 noremap <F4> :colorscheme base16-gruvbox-dark-pale<CR>
 "space meme
 nmap <space> :
@@ -132,8 +90,6 @@ set pastetoggle=<F2>
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
 vnoremap <C-d> "+d
-"close scratch
-autocmd CompleteDone * pclose
 "clear search results
 nnoremap <esc> :noh<return><esc>
 
@@ -146,9 +102,49 @@ inoremap <leader>n <Esc>/<++><Enter>"_c4l
 noremap <leader>n <Esc>/<++><Enter>"_c4l
 "spellchecking
 map <F6> :setlocal spell! spelllang=pt_br<CR>
-let spell_auto_type="tex,md"
+map <F7> :setlocal spell! spelllang=en_us<CR>
+let spell_auto_type="tex,md,txt"
 nnoremap zz z=
 map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>
 
 " remove buffer
 noremap bd :bdelete<CR>
+
+" coc
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+" snips
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+

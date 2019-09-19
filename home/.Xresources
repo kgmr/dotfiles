@@ -58,14 +58,14 @@ urxvt*matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 !Rofi simple, small top window
 !rofi.font: dina\ 8
 !rofi.color-enabled: true
-!rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
-!rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
-!rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
-!rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
-rofi.width: 1366
-rofi.lines: 5
+rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
+rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
+rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
+rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
+rofi.width: 1440
+rofi.lines: 8
 rofi.location: 2
-rofi.yoffset: 13
+rofi.yoffset: 18
 rofi.xoffset: 0
 rofi.opacity: 92
 !URxvt.perl-ext-common: default,matcher
@@ -77,8 +77,6 @@ rofi.color-enabled: true
 ! a6 = 65% amount of black needed over white for white to be a 7 contrast score
 ! b3 = 70%
 ! 80 = 50%
-rofi.color-window: argb:a6000000, argb:a6000000, argb:0000000
-rofi.color-normal: argb:0fdf6e3, #ffffff, argb:0eee8d5, #009688, #ffffff
 rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
 rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 rofi.line-margin: 18

@@ -93,11 +93,11 @@
 #
 #volume down
 "amixer sset -D pulse Master 5%-"
-  XF86AudioLowerVolume
+  Mod4 + F1
 #
 #vol up
 "amixer -D pulse sset Master 5%+"
-  XF86AudioRaiseVolume
+  Mod4 + F2
 
 #Tray
 "~/bin/stalonetray.sh"
