@@ -34,8 +34,8 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-markdown'
 Plug 'mateusbraga/vim-spell-pt-br'
 Plug 'dylanaraps/wal.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug '~/.fzf'
 
 call plug#end()
 
@@ -148,3 +148,5 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+"fzf
+nmap <C-p> :FZF<cr>
