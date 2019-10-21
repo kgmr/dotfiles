@@ -112,11 +112,9 @@ alias vp="nvim ~/.senttemplate"
 alias present="sent"
 alias nyaa="nyaacli horrible 720"
 #Package management
-alias pac="sudo pacman -S"
-alias pacs="pacman -Ss"
-alias pacr="sudo pacman -Rns"
-alias aur="sudo pikaur -S"
-alias aurs="pikaur -Ss"
+alias pac="sudo pkcon install"
+alias pacs="pkcon search"
+alias pacr="sudo pkcon remove"
 #Tmux
 alias tms="tmux new-session -s"
 alias tml="tmux list-sessions"
@@ -155,3 +153,4 @@ alias comgra="cd ~/Documents/comgra/"
 tlp(){
 	task list project:"$1"
 }
+
