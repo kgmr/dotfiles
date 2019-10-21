@@ -4,7 +4,7 @@ export VISUAL="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 #wal colors
-cat /home/kassio/.cache/wal/sequences
+#cat /home/kassio/.cache/wal/sequences
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -155,5 +155,3 @@ alias comgra="cd ~/Documents/comgra/"
 tlp(){
 	task list project:"$1"
 }
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-

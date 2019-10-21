@@ -11,20 +11,17 @@ class nyaaFeed():
     def search(self, term="", category="english", filtering=""):
         if category == "english":
             self.cat = "1_2"
+
         else:
             self.cat = "1_0"
-
         if filtering == "trusted":
             self.filt = "2"
         else:
             self.filt = "0"
-
         self.query = term.replace(" ", "+")
         link = "https://www.nyaa.si/?page=rss&c=" + self.cat + "&q=" \
                 + self.query + "&f="+ self.filt
-
         feed = feedparser.parse(link)
-
         return feed.entries
 
 
@@ -41,4 +38,4 @@ while True:
     menu.show()
     sel = menu.selected_option
 
-    subprocess.Popen(['transmission-qt', results[sel].link], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+    subprocess.Popen(['qbittorrent', results[sel].link], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)

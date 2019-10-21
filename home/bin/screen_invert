@@ -1,0 +1,23 @@
+#!/bin/sh
+rotation=$(cat /tmp/rotation)
+case "$rotation" in
+    right)
+        echo "left" > /tmp/rotation
+        xrandr --output LVDS1 --rotate left
+        ;;
+    left)
+        echo "right" > /tmp/rotation
+        xrandr --output LVDS1 --rotate right
+        ;;
+    normal)
+        echo "inverted" > /tmp/rotation
+        xrandr --output LVDS1 --rotate inverted
+        ;;
+    inverted)
+        echo "normal" > /tmp/rotation
+        xrandr --output LVDS1 --rotate normal
+        ;;
+    *)
+        echo "inverted" > /tmp/rotation
+        xrandr --output LVDS1 --rotate inverted
+esac

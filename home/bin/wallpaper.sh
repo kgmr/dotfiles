@@ -1,8 +1,9 @@
-dir="/home/kassio/Pictures/Wallpaper/real"
+#!/bin/bash
+dir="/home/kgmr/Pictures/Wallpaper/real"
 
 if [ $1 ]
 then
-    dir="/home/kassio/Pictures/Wallpaper"
+    dir="/home/kgmr/Pictures/Wallpaper"
 fi
 
 

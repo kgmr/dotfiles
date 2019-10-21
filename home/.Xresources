@@ -62,7 +62,7 @@ rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
 rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
 rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
 rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
-rofi.width: 1440
+rofi.width: 1366
 rofi.lines: 8
 rofi.location: 2
 rofi.yoffset: 18

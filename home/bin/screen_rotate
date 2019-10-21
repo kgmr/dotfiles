@@ -1,0 +1,23 @@
+#!/bin/sh
+
+rotation=$(cat /tmp/rotation)
+if [ ! -f /tmp/screenlock ]; then
+    if [ "$rotation" == "normal" ]; then
+        echo "right" > /tmp/rotation
+        touch /tmp/screenlock
+        xrandr --output LVDS1 --rotate right
+
+
+    elif [ "$rotation" == "inverted" ]; then
+        echo "left" > /tmp/rotation
+        touch /tmp/screenlock
+        xrandr --output LVDS1 --rotate left
+    else
+        echo "normal" > /tmp/rotation
+        touch /tmp/screenlock
+        xrandr --output LVDS1 --rotate normal
+    fi
+    ~/bin/dock.sh &
+    sleep 2
+    rm /tmp/screenlock
+fi

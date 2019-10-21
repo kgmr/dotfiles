@@ -1,0 +1,2 @@
+#!/bin/sh
+cp "$1" "/tmp/tmpf.cbz" && okular "/tmp/tmpf.cbz"

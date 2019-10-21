@@ -1,0 +1,589 @@
+* Usability Tweaks
+
+** Enable Line numbers
+#+BEGIN_SRC emacs-lisp
+    (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+    (add-hook 'text-mode-hook 'display-line-numbers-mode)
+#+END_SRC
+** Show parent parentheses
+#+BEGIN_SRC emacs-lisp
+  (show-paren-mode 1)
+#+END_SRC
+** Disable the default startup screen
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+#+END_SRC
+** Disable most gui elements
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+#+END_SRC
+
+** Indentation
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 4)
+  (setq-default standard-indent 4)
+  (setq c-basic-offset tab-width)
+  (setq-default electric-indent-inhibit t)
+  (setq-default indent-tabs-mode t)
+  (setq backward-delete-char-untabify-method 'nil)
+#+END_SRC
+** Enable prettify symbols mode
+#+BEGIN_SRC emacs-lisp
+  (global-prettify-symbols-mode t)
+#+END_SRC
+** Enable bracket pair-matching
+#+BEGIN_SRC emacs-lisp
+  (setq electric-pair-pairs '(
+                              (?\{ . ?\})
+                              (?\( . ?\))
+                              (?\[ . ?\])
+                              (?\" . ?\")
+                              ))
+  (electric-pair-mode t)
+#+END_SRC
+** Creating a new window switches your cursor to it
+#+BEGIN_SRC emacs-lisp
+  (defun split-and-follow-horizontally ()
+	(interactive)
+	(split-window-below)
+	(balance-windows)
+	(other-window 1))
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+  (defun split-and-follow-vertically ()
+	(interactive)
+	(split-window-right)
+	(balance-windows)
+	(other-window 1))
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+#+END_SRC
+** Transform yes-or-no questions into y-or-n
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+** Highlight current line
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode t)
+#+END_SRC
+** Defer loading most packages for quicker startup times
+#+BEGIN_SRC emacs-lisp
+(setq use-package-always-defer t)
+#+END_SRC
+
+* General global keymaps
+** Window Movement
+*** Move around widows with C-hjkl
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-l") 'windmove-right)
+(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-j") 'windmove-down)
+#+END_SRC
+* Org mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :config
+    (add-hook 'org-mode-hook 'org-indent-mode)
+    (add-hook 'org-mode-hook
+              '(lambda ()
+                 (visual-line-mode 1))))
+
+  (use-package org-indent
+    :diminish org-indent-mode)
+    
+  (use-package evil-org
+    :ensure t
+    :after org
+    :config
+    (add-hook 'org-mode-hook 'evil-org-mode)
+    (add-hook 'evil-org-mode-hook
+              (lambda ()
+                (evil-org-set-key-theme)))
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys))
+
+  (use-package htmlize
+    :ensure t)
+#+END_SRC
+
+* Use-package
+** Initialize =auto-package-update=
+*** Description
+Auto-package-update automatically updates and removes old packages
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-package-update
+    :defer nil
+    :ensure t
+    :config
+    (setq auto-package-update-delete-old-versions t)
+    (setq auto-package-update-hide-results t)
+    (auto-package-update-maybe))
+#+END_SRC
+** Initialize =diminish=
+*** Description
+Diminish hides minor modes to prevent cluttering your mode line
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package diminish
+    :ensure t)
+#+END_SRC
+
+** Initialize =powerline= 
+*** Description
+Powerline using default theme
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package powerline
+  :init
+  (powerline-default-theme))
+#+END_SRC
+
+** Initialize =which-key=
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :diminish which-key-mode
+    :init
+    (which-key-mode))
+#+END_SRC
+** Initialize =evil=
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t
+    :defer nil
+    :init
+    (setq evil-want-keybinding nil)
+    (setq evil-want-C-u-scroll t)
+    :bind
+    (:map evil-normal-state-map
+	  ("SPC" . evil-ex)
+    ("gt" . next-buffer)
+    ("gr" . previous-buffer)
+    ("<f4>" . evil-delete-buffer))
+    (:map evil-insert-state-map
+	  ("TAB" . tab-to-tab-stop ))
+    :config
+    (evil-mode 1))
+
+  (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init))
+
+  (use-package evil-escape
+    :diminish (evil-escape-mode)
+    :ensure t
+    :defer nil
+    :init
+    (setq-default evil-escape-key-sequence "jj")
+    (setq-default evil-escape-delay 0.2)
+    (setq evil-escape-excluded-states '(visual))
+    :config
+    (evil-escape-mode 1))
+#+END_SRC
+** Initialize =buffer-move=
+*** Description
+Switch windows with C-S-hjkl
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package buffer-move
+  :ensure t
+  :bind(:map global-map
+    ("C-S-h" . buf-move-left)
+    ("C-S-l" . buf-move-right)
+    ("C-S-j" . buf-move-down)
+    ("C-S-k" . buf-move-up)))
+#+END_SRC
+** Initialize =ace-jump-mode=
+*** Description
+Quickly find buffers
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package ace-jump-buffer
+  :ensure t
+  :bind
+  :bind(:map global-map
+  ("<f3>" . ace-jump-buffer)))
+#+END_SRC
+** Initialize =swiper=
+Interactive ivy searcher
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package swiper
+  :after(evil)
+	:ensure t
+	:bind
+  (:map evil-normal-state-map
+  ("F" . swiper)))
+#+END_SRC
+
+** Initialize =beacon=
+*** Description
+Cursor Highlight
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package beacon
+    :ensure t
+    :diminish beacon-mode
+    :init
+    (beacon-mode 1))
+#+END_SRC
+
+** Initialize =all-the-icons=
+*** Description
+Icons for treemacs and dashboard
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+:ensure t)
+#+END_SRC
+
+** Initialize =avy=
+*** Description
+Jump to thing
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+  :after (evil)
+	:ensure t
+	:bind
+  (:map evil-normal-state-map
+  ("f" . avy-goto-char)))
+#+END_SRC
+
+** Initialize =switch-window=
+*** Description
+Easily switch and resize windows
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package switch-window
+	:ensure t
+	:config
+	(setq switch-window-input-style 'minibuffer)
+	(setq switch-window-increase 4)
+	(setq switch-window-threshold 2)
+	(setq switch-window-shortcut-style 'qwerty)
+	(setq switch-window-qwerty-shortcuts
+		  '("a" "s" "d" "f" "j" "k" "l"))
+	:bind
+	([remap other-window] . switch-window))
+#+END_SRC
+** Initialize =projectile=
+*** Description
+Projects for emacs
+*** code
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :ensure t
+  :bind(:map projectile-mode-map
+	("s-p" . projectile-command-map)
+	("C-c p" . projectile-command-map))
+  :config(projectile-mode 1))
+#+END_SRC
+
+** Initialize =treemacs=
+*** Description
+File tree
+*** code
+#+BEGIN_SRC emacs-lisp
+(use-package treemacs
+  :ensure t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs                 (if (executable-find "python3") 3 0)
+          treemacs-deferred-git-apply-delay      0.5
+          treemacs-display-in-side-window        t
+          treemacs-file-event-delay              5000
+          treemacs-file-follow-delay             0.2
+          treemacs-follow-after-init             t
+          treemacs-git-command-pipe              ""
+          treemacs-goto-tag-strategy             'refetch-index
+          treemacs-indentation                   2
+          treemacs-indentation-string            " "
+          treemacs-is-never-other-window         nil
+          treemacs-max-git-entries               5000
+          treemacs-missing-project-action        'ask
+          treemacs-no-png-images                 nil
+          treemacs-no-delete-other-windows       t
+          treemacs-project-follow-cleanup        nil
+          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-recenter-distance             0.1
+          treemacs-recenter-after-file-follow    nil
+          treemacs-recenter-after-tag-follow     nil
+          treemacs-recenter-after-project-jump   'always
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-show-cursor                   nil
+          treemacs-show-hidden-files             t
+          treemacs-silent-filewatch              nil
+          treemacs-silent-refresh                nil
+          treemacs-sorting                       'alphabetic-desc
+          treemacs-space-between-root-nodes      t
+          treemacs-tag-follow-cleanup            t
+          treemacs-tag-follow-delay              1.5
+          treemacs-width                         30)
+    (treemacs-resize-icons 11)
+      
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null (executable-find "python3"))))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t t"   . treemacs)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag))
+  (:map evil-normal-state-map
+   ("tt" . treemacs)
+   ("ty" . treemacs-copy-file)
+   ("td" . treemacs-move-file)
+   ("tD" . treemacs-delete-file)
+   ("ta" . treemacs-create-file)
+   ("tA" . treemacs-create-dir)
+   ("tr" . treemacs-rename-file)))
+   
+
+(use-package treemacs-evil
+  :after treemacs evil
+    :ensure t)
+(use-package treemacs-evil
+  :after treemacs evil projectile
+    :ensure t)
+
+  (use-package treemacs-icons-dired
+    :after treemacs dired
+    :ensure t
+    :config (treemacs-icons-dired-mode))
+#+END_SRC
+
+** Initialize =ivy=
+*** Description
+Minibuffer completion
+*** code
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :ensure t
+  :diminish(ivy-mode)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind(:map ivy-minibuffer-map
+   ("C-j" . ivy-next-line)
+   ("C-k" . ivy-previous-line))
+  :init
+  (ivy-mode 1))
+#+END_SRC
+
+** Initialize =counsel=
+*** Description
+Replace default commands with ivy minibuffer completion
+*** code
+#+BEGIN_SRC emacs-lisp
+(use-package counsel
+  :ensure t
+  :diminish (counsel-mode)
+  :bind(:map global-map
+  ("M-p" . counsel-file-jump))
+  :init
+  (counsel-mode 1))
+#+END_SRC
+
+** Initialize =counsel-projectile=
+*** Description
+Counsel integration for projectile
+*** code
+#+BEGIN_SRC emacs-lisp
+(use-package counsel-projectile
+  :ensure t
+  :diminish(counsel-projectile-mode)
+  :bind(:map global-map
+  ("<f1>" . projectile-find-file)
+  ("<f2>" . projectile-switch-project))
+  :init
+  (counsel-projectile-mode 1))
+#+END_SRC
+
+** Initialize =async=
+*** Description
+Utilize asynchronous processes whenever possible
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package async
+	:ensure t
+	:init
+	(dired-async-mode 1))
+#+END_SRC
+** Initialize =page-break-lines=
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package page-break-lines
+    :ensure t
+    :diminish (page-break-lines-mode visual-line-mode))
+#+END_SRC
+** Initialize =undo-tree=
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :ensure t
+    :diminish undo-tree-mode)
+#+END_SRC
+
+** Initialize =magit=
+*** Description
+Git porcelain for Emacs
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t)
+#+END_SRC
+
+** Initialize =company=
+*** Description
+Code completion for emacs
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package company
+  :ensure t
+  :diminish (company-mode)
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-j") #'company-select-next)
+  (define-key company-active-map (kbd "C-k") #'company-select-previous)
+  (define-key company-active-map (kbd "SPC") #'company-abort)
+  :hook
+  ((prog-mode) . company-mode))
+#+END_SRC
+
+** Initialize =yasnippet=
+*** Description
+Code snippets
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :diminish yas-minor-mode
+  :hook
+  ((prog-mode) . yas-minor-mode)
+  :config
+  (yas-reload-all))
+
+(use-package yasnippet-snippets
+  :ensure t)
+#+END_SRC
+
+** Initialize =flycheck=
+*** Description
+Real time code checking
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode 1))
+#+END_SRC
+
+** Initialize =lsp=
+*** Description
+Language server support for emacs
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :defer nil
+  :hook (prog-mode . lsp)
+  :config
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-file-watchers nil)
+  :commands lsp)
+
+(use-package lsp-ui
+  :defer nil
+  :ensure t
+  :hook (lsp-mode-hook lsp-ui-mode-hook))
+
+(use-package company-lsp
+  :after(company, lsp-mode)
+  :ensure t)
+#+END_SRC
+
+** Initialize =gruvbox=
+*** Description
+Gruvbox theme
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package gruvbox-theme
+  :ensure t
+  :config
+  :init
+  (load-theme 'gruvbox-dark-soft t))
+#+END_SRC
+** Initialize =dashboard=
+*** Description
+Dashboard
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package dashboard
+  :defer nil
+  :ensure t
+  :init
+  (setq dashboard-center-content t)
+  (setq dashboard-startup-banner "~/.emacs.d/camp.png")
+  (setq dashboard-banner-logo-title "Welcome to EMΔCS")
+  (setq dashboard-items '((recents  . 5)
+                        (projects . 5)))
+  (setq dashboard-modify-heading-icons '((recents . "file-text")
+                                  (projects . "book")))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-footer nil)
+  (setq dashboard-set-navigator t)
+  (setq dashboard-navigator-buttons
+        `(;; line1
+          ((,nil
+            "Configuration file"
+            "~/.emacs.d/config.org"
+            (lambda (&rest _) (find-file "~/.emacs.d/config.org"))
+            'default)
+           (nil
+            "Open project"
+            "Counsel-projectile"
+            (lambda (&rest _) (counsel-projectile))
+            'default)
+           (nil
+            "Todo list"
+            "Org todo list"
+            (lambda (&rest _) (org-todo-list))
+            'default)
+           )))
+  :config
+  (dashboard-setup-startup-hook))
+#+END_SRC
+** Initialize =highlight-indent-line=
+*** Description
+Visual indent level
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package highlight-indent-guides
+:ensure t
+:config
+(setq highlight-indent-guides-method 'character)
+:hook
+(prog-mode . highlight-indent-guides-mode))
+#+END_SRC
