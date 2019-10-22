@@ -219,8 +219,8 @@ Quickly find buffers
 (use-package ace-jump-buffer
   :ensure t
   :bind
-  :bind(:map evil-normal-state-map
-  ("gy" . ace-jump-buffer)))
+  :bind(:map global-map
+  ("<f3>" . ace-jump-buffer)))
 #+END_SRC
 ** Initialize =swiper=
 Interactive ivy searcher
