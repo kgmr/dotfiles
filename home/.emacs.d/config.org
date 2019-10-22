@@ -1,5 +1,4 @@
 * Usability Tweaks
-
 ** Enable Line numbers
 #+BEGIN_SRC emacs-lisp
     (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -63,6 +62,10 @@
 #+BEGIN_SRC emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
+** Always follow symlinks
+#+BEGIN_SRC emacs-lisp
+  (setq vc-follow-symlinks t)
+#+END_SRC
 ** Highlight current line
 #+BEGIN_SRC emacs-lisp
   (global-hl-line-mode t)
@@ -70,6 +73,12 @@
 ** Defer loading most packages for quicker startup times
 #+BEGIN_SRC emacs-lisp
 (setq use-package-always-defer t)
+#+END_SRC
+
+** Keep temp files in temp folder
+Store all backup and autosave files in the tmp dir
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist '(("." . "~/MyEmacsBackups")))
 #+END_SRC
 
 * General global keymaps
@@ -138,6 +147,7 @@ Powerline using default theme
 *** Code
 #+BEGIN_SRC emacs-lisp
 (use-package powerline
+  :ensure t
   :init
   (powerline-default-theme))
 #+END_SRC
@@ -209,8 +219,8 @@ Quickly find buffers
 (use-package ace-jump-buffer
   :ensure t
   :bind
-  :bind(:map global-map
-  ("<f3>" . ace-jump-buffer)))
+  :bind(:map evil-normal-state-map
+  ("gy" . ace-jump-buffer)))
 #+END_SRC
 ** Initialize =swiper=
 Interactive ivy searcher
@@ -414,8 +424,9 @@ Counsel integration for projectile
   :ensure t
   :diminish(counsel-projectile-mode)
   :bind(:map global-map
-  ("<f1>" . projectile-find-file)
-  ("<f2>" . projectile-switch-project))
+  ("<f1>" . counsel-projectile-find-file)
+  ("C-<f1>" . counsel-projectile-switch-project)
+  ("<f2>" . counsel-projectile-ag))
   :init
   (counsel-projectile-mode 1))
 #+END_SRC
@@ -469,7 +480,7 @@ Code completion for emacs
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-j") #'company-select-next)
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
-  (define-key company-active-map (kbd "SPC") #'company-abort)
+  ;(define-key company-active-map (kbd "SPC") #'company-abort)
   :hook
   ((prog-mode) . company-mode))
 #+END_SRC
@@ -501,12 +512,34 @@ Real time code checking
   :init (global-flycheck-mode 1))
 #+END_SRC
 
+** Initialize =php-mode=
+*** Description
+Php mode
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package php-mode
+  :ensure t)
+#+END_SRC
+
+** Initialize =web-mode=
+*** Description
+Web completion (html/blade/jsp)
+*** Code
+#+BEGIN_SRC emacs-lisp
+(use-package web-mode
+  :ensure t
+  :config
+  (setq web-mode-engines-alist
+        '("blade"  . "\\.blade\\.")))
+#+END_SRC
+
 ** Initialize =lsp=
 *** Description
 Language server support for emacs
 *** Code
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-mode
+  :ensure t
   :defer nil
   :hook (prog-mode . lsp)
   :config
@@ -562,9 +595,9 @@ Dashboard
             (lambda (&rest _) (find-file "~/.emacs.d/config.org"))
             'default)
            (nil
-            "Open project"
-            "Counsel-projectile"
-            (lambda (&rest _) (counsel-projectile))
+            "Find files"
+            "counsel-find-file"
+            (lambda (&rest _) (counsel-find-file))
             'default)
            (nil
             "Todo list"
