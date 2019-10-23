@@ -94,6 +94,10 @@ Store all backup and autosave files in the tmp dir
 
 #+BEGIN_SRC emacs-lisp
   (use-package org
+    :after evil
+    :ensure t
+    :bind(:map evil-normal-state-map
+    ("T" . org-todo))
     :config
     (add-hook 'org-mode-hook 'org-indent-mode)
     (add-hook 'org-mode-hook
@@ -102,18 +106,6 @@ Store all backup and autosave files in the tmp dir
 
   (use-package org-indent
     :diminish org-indent-mode)
-    
-  (use-package evil-org
-    :ensure t
-    :after org
-    :config
-    (add-hook 'org-mode-hook 'evil-org-mode)
-    (add-hook 'evil-org-mode-hook
-              (lambda ()
-                (evil-org-set-key-theme)))
-    (require 'evil-org-agenda)
-    (evil-org-agenda-set-keys))
-
   (use-package htmlize
     :ensure t)
 #+END_SRC
@@ -165,6 +157,7 @@ Powerline using default theme
 *** Code
 #+BEGIN_SRC emacs-lisp
   (use-package evil
+    :after evil-leader
     :ensure t
     :defer nil
     :init
@@ -186,6 +179,13 @@ Powerline using default theme
     :ensure t
     :config
     (evil-collection-init))
+
+  (use-package evil-leader
+    :ensure t
+    :init
+    (global-evil-leader-mode)
+    :config
+    (evil-leader/set-leader ";"))
 
   (use-package evil-escape
     :diminish (evil-escape-mode)
