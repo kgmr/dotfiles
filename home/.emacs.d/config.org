@@ -179,6 +179,12 @@ Powerline using default theme
     :ensure t
     :config
     (evil-collection-init))
+    
+(use-package evil-surround
+  :defer nil
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
   (use-package evil-leader
     :ensure t
@@ -186,6 +192,11 @@ Powerline using default theme
     (global-evil-leader-mode)
     :config
     (evil-leader/set-leader ";"))
+    
+(use-package evil-matchit
+  :after evil
+  :init
+  (global-evil-matchit-mode t))
 
   (use-package evil-escape
     :diminish (evil-escape-mode)
@@ -409,6 +420,13 @@ Replace default commands with ivy minibuffer completion
 (use-package counsel
   :ensure t
   :diminish (counsel-mode)
+  :config
+  (setq counsel-find-file-ignore-regexp
+        (concat
+         ;; File names beginning with # or .
+         "\\(?:\\`[#.]\\)"
+         ;; File names ending with # or ~
+         "\\|\\(?:\\`.+?[#~]\\'\\)"))
   :bind(:map global-map
   ("M-p" . counsel-file-jump))
   :init
@@ -462,7 +480,9 @@ Git porcelain for Emacs
 *** Code
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :ensure t)
+    :ensure t
+    :bind (:map global-map
+    ("<f5>" . magit)))
 #+END_SRC
 
 ** Initialize =company=
