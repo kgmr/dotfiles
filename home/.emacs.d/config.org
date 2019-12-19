@@ -153,6 +153,15 @@ Powerline using default theme
     :init
     (which-key-mode))
 #+END_SRC
+** Initialize =which-key=
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package dumb-jump
+    :ensure t
+    :diminish dumb-jump-mode
+    :init
+    (dumb-jump-mode))
+#+END_SRC
 ** Initialize =evil=
 *** Code
 #+BEGIN_SRC emacs-lisp
@@ -168,6 +177,7 @@ Powerline using default theme
 	  ("SPC" . evil-ex)
     ("gt" . next-buffer)
     ("gr" . previous-buffer)
+    ("gd" . dumb-jump-go)
     ("<f4>" . evil-delete-buffer))
     (:map evil-insert-state-map
 	  ("TAB" . tab-to-tab-stop ))
@@ -500,7 +510,6 @@ Code completion for emacs
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-j") #'company-select-next)
   (define-key company-active-map (kbd "C-k") #'company-select-previous)
-  ;(define-key company-active-map (kbd "SPC") #'company-abort)
   :hook
   ((prog-mode) . company-mode))
 #+END_SRC
@@ -516,9 +525,9 @@ Code snippets
   :hook
   ((prog-mode) . yas-minor-mode)
   :config
-  (yas-reload-all))
-
+  (yas-global-mode 1))
 (use-package yasnippet-snippets
+  :defer nil
   :ensure t)
 #+END_SRC
 
@@ -573,7 +582,7 @@ Language server support for emacs
   :hook (lsp-mode-hook lsp-ui-mode-hook))
 
 (use-package company-lsp
-  :after(company, lsp-mode)
+  :defer nil
   :ensure t)
 #+END_SRC
 
@@ -598,7 +607,7 @@ Dashboard
   :ensure t
   :init
   (setq dashboard-center-content t)
-  (setq dashboard-startup-banner "~/.emacs.d/camp.png")
+  ;(setq dashboard-startup-banner "~/.emacs.d/camp.png")
   (setq dashboard-banner-logo-title "Welcome to EMΔCS")
   (setq dashboard-items '((recents  . 5)
                         (projects . 5)))
