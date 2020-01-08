@@ -411,7 +411,7 @@ File tree
    ("tD" . treemacs-delete-file)
    ("ta" . treemacs-create-file)
    ("tA" . treemacs-create-dir)
-   ("tr" . treemacs-rename-file)))
+   ("tr" . treemacs-rename)))
    
 
 (use-package treemacs-evil
