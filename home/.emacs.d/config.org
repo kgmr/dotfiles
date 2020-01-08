@@ -81,6 +81,34 @@ Store all backup and autosave files in the tmp dir
 (setq backup-directory-alist '(("." . "~/MyEmacsBackups")))
 #+END_SRC
 
+** Buffer navigation tweaks
+#+BEGIN_SRC emacs-lisp
+(defvar my-skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*lsp-log*" "*iph*" "*iph::stderr*" "*dashboard*")
+  "Buffer names ignored by `my-next-buffer' and `my-previous-buffer'.")
+
+(defun my-change-buffer (change-buffer)
+  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
+  (let ((initial (current-buffer)))
+    (funcall change-buffer)
+    (let ((first-change (current-buffer)))
+      (catch 'loop
+        (while (member (buffer-name) my-skippable-buffers)
+          (funcall change-buffer)
+          (when (eq (current-buffer) first-change)
+            (switch-to-buffer initial)
+            (throw 'loop t)))))))
+
+(defun my-next-buffer ()
+  "Variant of `next-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'next-buffer))
+
+(defun my-previous-buffer ()
+  "Variant of `previous-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'previous-buffer))
+#+END_SRC
+
 * General global keymaps
 ** Window Movement
 *** Move around widows with C-hjkl
@@ -153,7 +181,7 @@ Powerline using default theme
     :init
     (which-key-mode))
 #+END_SRC
-** Initialize =which-key=
+** Initialize =dumb-jump=
 *** Code
 #+BEGIN_SRC emacs-lisp
   (use-package dumb-jump
@@ -175,8 +203,8 @@ Powerline using default theme
     :bind
     (:map evil-normal-state-map
 	  ("SPC" . evil-ex)
-    ("gt" . next-buffer)
-    ("gr" . previous-buffer)
+    ("gt" . my-next-buffer)
+    ("gr" . my-previous-buffer)
     ("gd" . dumb-jump-go)
     ("<f4>" . evil-delete-buffer))
     (:map evil-insert-state-map
