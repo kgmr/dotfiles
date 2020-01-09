@@ -36,6 +36,10 @@ Plug 'mateusbraga/vim-spell-pt-br'
 Plug 'dylanaraps/wal.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug '~/.fzf'
+Plug 'elixir-editors/vim-elixir'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -43,9 +47,9 @@ call plug#end()
 let base16colorspace=256
 set hlsearch
 syntax enable
-colorscheme default
+colorscheme wal
 
-set relativenumber
+set number
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
 let g:user_emmet_install_global = 0
@@ -61,9 +65,13 @@ let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 
 "Neomake
 autocmd! BufWritePost * Neomake
+
 "Tree
 map tt :NERDTreeToggle<CR>
-:let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=25
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
 "Line
 set laststatus=2
 let g:lightline = {
@@ -86,7 +94,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " paste
-set pastetoggle=<F2>
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
 vnoremap <C-d> "+d
@@ -108,7 +115,7 @@ nnoremap zz z=
 map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>
 
 " remove buffer
-noremap bd :bdelete<CR>
+noremap bd :bp\|bd #<CR>
 
 " coc
 set hidden
@@ -118,7 +125,7 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+"set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
@@ -149,4 +156,10 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "fzf
-nmap <C-p> :FZF<cr>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+nmap <F1> :FZF<cr>
+" ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+nmap <F2> :Ack<SPACE>
