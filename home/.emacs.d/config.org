@@ -582,9 +582,31 @@ Web completion (html/blade/jsp)
   :ensure t
   :config
   (setq web-mode-engines-alist
-        '("blade"  . "\\.blade\\.")))
+        '("blade"  . "\\.blade\\."))
+ (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 #+END_SRC
 
+** Initialize =typescript=
+#+BEGIN_SRC emacs-lisp
+(use-package typescript-mode
+  :ensure t
+  :mode (("\\.ts\\'" . typescript-mode)
+         ("\\.tsx\\'" . typescript-mode)))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (defun tide-imenu-index () nil)
+  (tide-setup)
+  (tide-hl-identifier-mode +1))
+
+(use-package tide
+  :ensure t
+  :config
+  (progn
+    (add-hook 'typescript-mode-hook #'setup-tide-mode)
+    (add-hook 'js-mode-hook #'setup-tide-mode)
+    (add-hook 'rjsx-mode-hook #'setup-tide-mode)))
+#+END_SRC
 ** Initialize =lsp=
 *** Description
 Language server support for emacs
