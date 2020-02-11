@@ -83,30 +83,13 @@ Store all backup and autosave files in the tmp dir
 
 ** Buffer navigation tweaks
 #+BEGIN_SRC emacs-lisp
-(defvar my-skippable-buffers '("*Messages*" "*scratch*" "*Help*" "*lsp-log*" "*iph*" "*iph::stderr*" "*dashboard*")
-  "Buffer names ignored by `my-next-buffer' and `my-previous-buffer'.")
+(defun my-buffer-predicate (buffer)
+  (if (string-match "*" (buffer-name buffer))
+      nil
+    t))
+(set-frame-parameter nil 'buffer-predicate 'my-buffer-predicate)
 
-(defun my-change-buffer (change-buffer)
-  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
-  (let ((initial (current-buffer)))
-    (funcall change-buffer)
-    (let ((first-change (current-buffer)))
-      (catch 'loop
-        (while (member (buffer-name) my-skippable-buffers)
-          (funcall change-buffer)
-          (when (eq (current-buffer) first-change)
-            (switch-to-buffer initial)
-            (throw 'loop t)))))))
 
-(defun my-next-buffer ()
-  "Variant of `next-buffer' that skips `my-skippable-buffers'."
-  (interactive)
-  (my-change-buffer 'next-buffer))
-
-(defun my-previous-buffer ()
-  "Variant of `previous-buffer' that skips `my-skippable-buffers'."
-  (interactive)
-  (my-change-buffer 'previous-buffer))
 #+END_SRC
 
 * General global keymaps
@@ -203,8 +186,8 @@ Powerline using default theme
     :bind
     (:map evil-normal-state-map
 	  ("SPC" . evil-ex)
-    ("gt" . my-next-buffer)
-    ("gr" . my-previous-buffer)
+    ("gt" . next-buffer)
+    ("gr" . previous-buffer)
     ("gd" . dumb-jump-go)
     ("<f4>" . evil-delete-buffer))
     (:map evil-insert-state-map
@@ -384,8 +367,9 @@ File tree
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
+          treemacs-no-png-images                 t
           treemacs-width                         30)
-    (treemacs-resize-icons 11)
+    (treemacs-resize-icons 22)
       
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
@@ -582,7 +566,9 @@ Web completion (html/blade/jsp)
   :ensure t
   :config
   (setq web-mode-engines-alist
-        '("blade"  . "\\.blade\\."))
+      '(("php"    . "\\.phtml\\'")
+        ("blade"  . "\\.blade\\."))
+)
  (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 #+END_SRC
 
@@ -624,6 +610,8 @@ Language server support for emacs
 (use-package lsp-ui
   :defer nil
   :ensure t
+  :config
+  (setq  lsp-ui-doc-position 'top)
   :hook (lsp-mode-hook lsp-ui-mode-hook))
 
 (use-package company-lsp
@@ -640,7 +628,7 @@ Gruvbox theme
   :ensure t
   :config
   :init
-  (load-theme 'gruvbox-dark-soft t))
+  (load-theme 'gruvbox-light-soft t))
 #+END_SRC
 ** Initialize =dashboard=
 *** Description

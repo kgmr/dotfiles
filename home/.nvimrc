@@ -47,8 +47,7 @@ call plug#end()
 let base16colorspace=256
 set hlsearch
 syntax enable
-colorscheme wal
-
+colorscheme base16-gruvbox-light-medium
 set number
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
@@ -82,8 +81,8 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 map gr :bprevious <CR>
 map gt :bnext<CR>
-noremap <F3> :colorscheme wal<CR>
-noremap <F4> :colorscheme base16-gruvbox-dark-pale<CR>
+noremap <F3> :vsplit<CR>
+noremap <S-F3> :split<CR>
 "space meme
 nmap <space> :
 
@@ -115,7 +114,7 @@ nnoremap zz z=
 map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>
 
 " remove buffer
-noremap bd :bp\|bd #<CR>
+noremap <F4> :bp\|bd #<CR>
 
 " coc
 set hidden
@@ -163,3 +162,15 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 nmap <F2> :Ack<SPACE>
+
+"docs
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
