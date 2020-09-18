@@ -88,16 +88,16 @@
 #Dmenu update
 
 #volume mute
-"amixer -D pulse set Master toggle"
-  Mod4 + F8
+"amixer set Master toggle"
+  XF86AudioMute
 #
 #volume down
-"amixer sset -D pulse Master 5%-"
-  Mod4 + F1
+"amixer set Master 5%-"
+  XF86AudioLowerVolume
 #
 #vol up
-"amixer -D pulse sset Master 5%+"
-  Mod4 + F2
+"amixer set Master 5%+"
+  XF86AudioRaiseVolume
 
 #Tray
 "~/bin/stalonetray.sh"
@@ -115,11 +115,12 @@
 "maim ~/Pictures/Capture/$(date +%F-%T).png -s"
   Shift + Print
 #wifi script
-"networkmanager_dmenu"
-  Mod4 + n
-
+#monitor
 "~/bin/chmon.sh"
   Mod4 + F5
+#network
+"~/bin/rofi-wifi-menu.sh"
+  Mod4 + n
 
 "qutebrowser"
   Mod4 + BackSpace
@@ -129,6 +130,10 @@
 
 "~/bin/switchtermfont.sh"
   Mod4 + F12
+"~/bin/screen_rotate"
+  XF86RotateWindows
+"~/bin/screen_invert"
+  XF86TaskPane
 ##################################
 # End of xbindkeys configuration #
 ##################################

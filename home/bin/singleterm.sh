@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 term(){
     termite -e 'tmux new-session -A -s main'
 }

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [ "$(pidof stalonetray)" ]
 then
 	pkill stalonetray

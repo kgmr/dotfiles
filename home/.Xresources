@@ -56,7 +56,7 @@ urxvt*matcher.button:        1
 urxvt*matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
 !Rofi simple, small top window
-!rofi.font: dina\ 8
+!rofi.font: Dina\ 10
 !rofi.color-enabled: true
 rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
 rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
@@ -65,7 +65,7 @@ rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
 rofi.width: 1366
 rofi.lines: 8
 rofi.location: 2
-rofi.yoffset: 18
+rofi.yoffset: 16
 rofi.xoffset: 0
 rofi.opacity: 92
 !URxvt.perl-ext-common: default,matcher
@@ -87,3 +87,4 @@ rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
 !URxvt.depth: 32
+Xcursor.theme: Breeze_Snow

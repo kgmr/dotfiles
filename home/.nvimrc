@@ -40,6 +40,8 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mileszs/ack.vim'
+Plug 'jwalton512/vim-blade'
+Plug 'StanAngeloff/php.vim'
 
 call plug#end()
 

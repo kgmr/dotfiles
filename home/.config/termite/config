@@ -1,53 +1,54 @@
 [options]
 allow_bold = false
 clickable_url = true
-font = Monaco 10
+font = Monaco
 
 [colors]
-# Base16 Gruvbox dark, pale
+# Base16 Gruvbox light, soft
 # Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 
-foreground      = #dab997
-foreground_bold = #d5c4a1
-cursor          = #d5c4a1
-background = rgba(26,26,26,0.93)
+foreground      = #504945
+foreground_bold = #3c3836
+cursor          = #3c3836
+background      = #f2e5bc
+background = rgba(f2, e5, bc, 0.93)
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #262626
-color8  = #8a8a8a
-color7  = #dab997
-color15 = #ebdbb2
+color0  = #f2e5bc
+color8  = #bdae93
+color7  = #504945
+color15 = #282828
 
 # Red
-color1  = #d75f5f
-color9  = #d75f5f
+color1  = #9d0006
+color9  = #9d0006
 
 # Green
-color2  = #afaf00
-color10 = #afaf00
+color2  = #79740e
+color10 = #79740e
 
 # Yellow
-color3  = #ffaf00
-color11 = #ffaf00
+color3  = #b57614
+color11 = #b57614
 
 # Blue
-color4  = #83adad
-color12 = #83adad
+color4  = #076678
+color12 = #076678
 
 # Purple
-color5  = #d485ad
-color13 = #d485ad
+color5  = #8f3f71
+color13 = #8f3f71
 
 # Teal
-color6  = #85ad85
-color14 = #85ad85
+color6  = #427b58
+color14 = #427b58
 
 # Extra colors
-color16 = #ff8700
+color16 = #af3a03
 color17 = #d65d0e
-color18 = #3a3a3a
-color19 = #4e4e4e
-color20 = #949494
-color21 = #d5c4a1
+color18 = #ebdbb2
+color19 = #d5c4a1
+color20 = #665c54
+color21 = #3c3836
