@@ -40,8 +40,8 @@ filetype plugin indent on    " required
 "Conf
 set hlsearch
 syntax enable
-set background=light
-:colorscheme Solarized
+set background=dark
+:colorscheme base16-gruvbox-dark-medium
 set t_co=256
 set number
 "Set paste

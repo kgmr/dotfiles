@@ -19,12 +19,11 @@ Plug 'shougo/neosnippet-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'farmergreg/vim-lastplace'
+Plug 'airblade/vim-rooter'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'chriskempson/base16-vim'
 Plug 'vimwiki/vimwiki'
-Plug 'tbabej/taskwiki'
-Plug 'blindFS/vim-taskwarrior'
 Plug 'mattn/emmet-vim'
 Plug 'xolox/vim-misc'
 Plug 'lervag/vimtex' 
@@ -35,7 +34,8 @@ Plug 'tpope/vim-markdown'
 Plug 'mateusbraga/vim-spell-pt-br'
 Plug 'dylanaraps/wal.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug '~/.fzf'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -113,7 +113,7 @@ map <F6> :setlocal spell! spelllang=pt_br<CR>
 map <F7> :setlocal spell! spelllang=en_us<CR>
 let spell_auto_type="tex,md,txt"
 nnoremap zz z=
-map <F5> :w<CR> :!clear; make<CR> :!./%<<CR>
+map <F5> :Buffers<CR>
 
 " remove buffer
 noremap <F4> :bp\|bd #<CR>
@@ -157,8 +157,7 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 "fzf
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-nmap <F1> :FZF<cr>
+nmap <F1> :Files<cr>
 " ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

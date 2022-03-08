@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+#
+ZSH_DISABLE_COMPFIX=true
+export PATH=$HOME/bin:$PATH
 export VISUAL="nvim"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -110,47 +112,24 @@ alias vo="nvim -c CtrlP"
 alias vw="nvim -c VimwikiIndex"
 alias vp="nvim ~/.senttemplate"
 alias present="sent"
-alias nyaa="nyaacli horrible 720"
 #Package management
-alias pac="sudo pkcon install"
-alias pacs="pkcon search"
-alias pacr="sudo pkcon remove"
-#Tmux
-alias tms="tmux new-session -s"
-alias tml="tmux list-sessions"
-alias tma="tmux a -t"
-alias tmk="tmux kill-session -t"
-alias tmd="tmux detach-client"
+alias pac="brew install"
+alias pacs="brew search"
+alias pacr="brew remove"
 #Git
 alias gitcl="git clone"
 alias gitps="git push"
 alias gitpl="git pull"
 alias gita="git add "
-alias gitr="git rm"
+alias gitrm="git rm"
 alias gitco="git commit -m"
 alias gits="git status"
 alias gitck="git checkout"
 alias gitbr="git branch"
 alias gitd="git diff"
-alias gitme="git merge"
-alias gitfe="git fetch"
-alias pyenv="source ~/django/bin/activate"
-# todos
-alias tasks="vit"
-alias ta="task add"
-alias tas="task add project:study"
-alias tam="task add project:main"
-alias tap="task add project:prog"
-alias tl="task list project:prog or project:study or project:main"
-alias td="task done"
-alias te="task edit"
-alias tm="task modify"
-alias tr="task rm"
-alias f="ranger"
-
-#paths
-alias comgra="cd ~/Documents/comgra/"
-tlp(){
-	task list project:"$1"
-}
-
+#docker
+alias doclist="docker.sh"
+alias docrn="docker stats --format {{.Name}} --no-stream > ~/.container-list && echo 'container list updated'"
+alias docup="docker-compose up -d && docrn"
+alias docdown="docker-compose down && docrn"
+alias docstats="docker stats"
