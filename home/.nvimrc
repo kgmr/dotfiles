@@ -1,6 +1,7 @@
 set gdefault                  
+set clipboard=unnamedplus
 :set mouse=a
-set cc=80
+set guioptions-=r
 
 set expandtab
 set shiftwidth=4
@@ -14,8 +15,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'lokaltog/vim-easymotion'
-Plug 'shougo/neosnippet.vim'
-Plug 'shougo/neosnippet-snippets'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 Plug 'farmergreg/vim-lastplace'
@@ -42,14 +41,19 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'mileszs/ack.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'StanAngeloff/php.vim'
+Plug 'igungor/schellar'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 call plug#end()
 
 "Conf
-let base16colorspace=256
 set hlsearch
 syntax enable
-colorscheme base16-gruvbox-light-medium
+colorscheme schellar
 set number
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
@@ -66,7 +70,10 @@ let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 
 "Neomake
 autocmd! BufWritePost * Neomake
+"prettier
 
+"fzf
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 "Tree
 map tt :NERDTreeToggle<CR>
 let g:NERDTreeWinSize=25
@@ -81,10 +88,10 @@ let g:lightline = {
 "buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-map gr :bprevious <CR>
-map gt :bnext<CR>
-noremap <F3> :vsplit<CR>
-noremap <S-F3> :split<CR>
+map gk :bprevious <CR>
+map gj :bnext<CR>
+noremap <F9> :vsplit<CR>
+noremap <F10> :split<CR>
 "space meme
 nmap <space> :
 
@@ -121,40 +128,70 @@ noremap <F4> :bp\|bd #<CR>
 " coc
 set hidden
 
-" Some servers have issues with backup files, see #649
+" Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
 
-" Better display for messages
-"set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
 set signcolumn=yes
 
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" snips
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "fzf
 nmap <F1> :Files<cr>
@@ -163,15 +200,3 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 nmap <F2> :Ack<SPACE>
-
-"docs
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-

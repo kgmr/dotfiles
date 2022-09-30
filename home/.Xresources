@@ -55,31 +55,6 @@ urxvt*urlLauncher:        /usr/bin/firefox
 urxvt*matcher.button:        1
 urxvt*matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
-!Rofi simple, small top window
-!rofi.font: Dina\ 10
-!rofi.color-enabled: true
-rofi.color-window: #2d2d2d, #2d2d2d, #268bd2
-rofi.color-normal: #2d2d2d, #ffffff, #2d2d2d, #268bd2, #ffffff
-rofi.color-active: #2d2d2d, #268bd2, #2d2d2d, #268bd2, #205171
-rofi.color-urgent: #2d2d2d, #f3843d, #2d2d2d, #268bd2, #ffc39c
-rofi.width: 1366
-rofi.lines: 8
-rofi.location: 2
-rofi.yoffset: 16
-rofi.xoffset: 0
-rofi.opacity: 92
-!URxvt.perl-ext-common: default,matcher
-!URxvt.url-launcher: /usr/bin/chromium
-!URxvt.matcher.button: 1
-
-rofi.color-enabled: true
-! first two color-window were a013191c
-! a6 = 65% amount of black needed over white for white to be a 7 contrast score
-! b3 = 70%
-! 80 = 50%
-rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
-rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
-rofi.line-margin: 18
 rofi.padding : 20
 rofi.font: Roboto Light 20
 !rofi.fullscreen : true
@@ -87,4 +62,6 @@ rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
 !URxvt.depth: 32
-Xcursor.theme: Breeze_Snow
+Xcursor.theme: Breeze_Light
+
+!dwm

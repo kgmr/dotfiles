@@ -1,4 +1,4 @@
-# For the benefit of emacs users: -*- shell-script -*-
+ For the benefit of emacs users: -*- shell-script -*-
 ###########################
 # xbindkeys configuration #
 ###########################
@@ -116,19 +116,23 @@
   Shift + Print
 #wifi script
 #monitor
-"~/bin/chmon.sh"
-  Mod4 + F5
 #network
 "~/bin/rofi-wifi-menu.sh"
   Mod4 + n
 
-"qutebrowser"
+"firefox"
   Mod4 + BackSpace
 
-"termite -e ranger"
+"alacritty -e ranger"
   Mod4 + equal
 
-"~/bin/switchtermfont.sh"
+"alacritty"
+  Mod4 + Return
+
+"CM_LAUNCHER=rofi clipmenu"
+  Alt + h
+
+"~/bin/wallpaper.sh a b"
   Mod4 + F12
 "~/bin/screen_rotate"
   XF86RotateWindows
