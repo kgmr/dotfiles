@@ -2,12 +2,12 @@ set gdefault
 set clipboard=unnamedplus
 :set mouse=a
 set guioptions-=r
-
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set ignorecase
 set smartcase
+
 
 "plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -42,6 +42,8 @@ Plug 'mileszs/ack.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'StanAngeloff/php.vim'
 Plug 'igungor/schellar'
+Plug 'plan9-for-vimspace/acme-colors'
+Plug 'olivertaylor/vacme'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier', {
@@ -54,6 +56,8 @@ call plug#end()
 set hlsearch
 syntax enable
 colorscheme schellar
+:highlight CocFloating ctermfg=15
+:highlight CocFloating ctermbg=5
 set number
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
@@ -67,6 +71,7 @@ nmap f <Plug>(easymotion-overwin-f)
 let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 "nmap F <Plug>(easymotion-F)
 "nmap f <Plug>(easymotion-f)
+
 
 "Neomake
 autocmd! BufWritePost * Neomake
@@ -189,10 +194,8 @@ function! ShowDocumentation()
     call feedkeys('K', 'in')
   endif
 endfunction
-
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 "fzf
 nmap <F1> :Files<cr>
 " ag
