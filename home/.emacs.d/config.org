@@ -617,13 +617,11 @@ Language server support for emacs
 Colorschemes
 *** Code
 #+BEGIN_SRC emacs-lisp
-(use-package gruvbox-theme
+(use-package acme-theme
   :ensure t
   :config
   :init
-  (load-theme 'gruvbox-light-soft t))
-(use-package kaolin-themes
-   :ensure t)
+  (load-theme 'acme t))
 #+END_SRC
 ** Initialize =dashboard=
 *** Description
