@@ -77,8 +77,6 @@
   Alt+w
 #change playlist randomizer"
 #Redshift
-"~/bin/redshift.sh"
-  Mod4 + p
 "zsh -c 'rofi -show drun'"
   Alt + q
 "lxtask"
@@ -87,18 +85,8 @@
 #Dmenu search
 #Dmenu update
 
-#volume mute
-"amixer set Master toggle"
-  XF86AudioMute
-#
-#volume down
-"amixer set Master 5%-"
-  XF86AudioLowerVolume
-#
-#vol up
-"amixer set Master 5%+"
-  XF86AudioRaiseVolume
-
+"rofi -show powermenu -modi powermenu:rofi-power-menu"
+  Mod4 + p
 #Tray
 "~/bin/stalonetray.sh"
   Mod4 + t
@@ -112,8 +100,12 @@
 "rofi -show"
   Alt + Tab
 
+/screenshot
 "maim ~/Pictures/Capture/$(date +%F-%T).png -s"
   Shift + Print
+
+"maim -s -d 2 | xclip -selection clipboard -t image/png"
+  Control + Print
 #wifi script
 #monitor
 #network

@@ -1,1 +1,8 @@
-{"dependencies":{}}
+{
+  "dependencies": {
+    "coc-blade": ">=0.13.12",
+    "coc-phpls": ">=2.2.2"
+  },
+  "disabled": [],
+  "locked": []
+}

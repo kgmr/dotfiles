@@ -4,13 +4,13 @@ if [ $1 ];then
     if [ "$1" == "update" ];then
     docker stats --format {{.Name}} --no-stream > ~/.container-list
     else
-        gcat ~/.container-list -n | grep "$1"
+        cat ~/.container-list -n | grep "$1"
     fi
 else
-    gcat ~/.container-list -n
+    cat ~/.container-list -n
 fi
 echo "-----------------------------"
 read option
-container=$(gcat ~/.container-list | sed -n ${option}p)
+container=$(cat ~/.container-list | sed -n ${option}p)
 clear
 docker exec -it $container sh

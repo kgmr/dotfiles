@@ -55,9 +55,12 @@ call plug#end()
 "Conf
 set hlsearch
 syntax enable
-colorscheme schellar
+colorscheme wal
 :highlight CocFloating ctermfg=15
 :highlight CocFloating ctermbg=5
+hi! CocErrorSign guibg=0
+" hi! CocInfoSign guibg=#353b45
+" hi! CocWarningSign guifg=#d1cd66
 set number
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "Enmet
@@ -68,6 +71,7 @@ ino jj <esc>
 cno jj <c-c>
 "ezmotion
 nmap f <Plug>(easymotion-overwin-f)
+nmap <F3> :call CocAction('format')<cr>
 let g:EasyMotion_keys='hklyuiopnmqwertzxcvbasdgjf'
 "nmap F <Plug>(easymotion-F)
 "nmap f <Plug>(easymotion-f)
@@ -93,8 +97,8 @@ let g:lightline = {
 "buffers
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-map gk :bprevious <CR>
-map gj :bnext<CR>
+map gk :bnext <CR>
+map gj :bprevious<CR>
 noremap <F9> :vsplit<CR>
 noremap <F10> :split<CR>
 "space meme
@@ -197,7 +201,7 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 "fzf
-nmap <F1> :Files<cr>
+nmap <F1> :GFiles<cr>
 " ag
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

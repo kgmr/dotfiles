@@ -18,6 +18,15 @@ rofi.font: Roboto Light 20
 rofi.display-drun:
 rofi.display-window: win
 rofi.display-combi: myprompt
+rofi.kb-row-up:                      Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab
+rofi.kb-row-down:                    Down,Control+j
+rofi.kb-accept-entry:                Control+m,Return,KP_Enter
+rofi.terminal:                       mate-terminal
+rofi.kb-remove-to-eol:               Control+Shift+e
+rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+l
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Control+h
+rofi.kb-remove-char-back:            BackSpace
+
 !depth: 32
 Xcursor.theme: Breeze_Light
 
@@ -65,3 +74,14 @@ Xcursor.theme: Breeze_Light
 *.color7:       #999957
 
 *.color15:      #ffffec
+
+Xft.autohint: 1
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+rofi.fg:                             #222222
+rofi.bg:                             #fffbf8
+rofi.fg-active:                      #5d729f

@@ -1,5 +1,5 @@
 [global]
-    font = "Tewi , 8"
+    font = "Siji , 8"
     allow_markup = yes
     format = "<b>%s</b> %p\n%b"
     sort = yes
