@@ -1,4 +1,4 @@
-colorscheme schellar
+colorscheme pywal
 set guioptions-=r
 if exists('g:GuiLoaded')
     Guifont Monaco:h11
